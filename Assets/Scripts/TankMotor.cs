@@ -2,15 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(TankData))]
 public class TankMotor : MonoBehaviour
 {
-    // Start is called before the first frame update
+    //Referencing scripts
+    private CharacterController charCont;
+    private TankData data;
+    private Transform tf;
+
     void Start()
     {
-        
+        charCont = gameObject.GetComponent<CharacterController>();
+        data = gameObject.GetComponent<TankData>();
+        tf = gameObject.GetComponent<Transform>();
     }
 
-    // Update is called once per frame
+    //Player Movement
+    public void Move(float speed)
+    {
+        Vector3 speedVector = tf.forward * speed;
+        charCont.SimpleMove(speedVector);
+    }
+
+    //Player Rotation
+    public void Rotate(float speed)
+    {
+        Vector3 rotateVector = Vector3.up * speed * Time.deltaTime;
+        tf.Rotate(rotateVector, Space.Self);
+    }
+
     void Update()
     {
         
