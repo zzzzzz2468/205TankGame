@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject player;
+
     public static GameManager gameManager;
 
     private void Awake()

@@ -19,16 +19,16 @@ public class TankMotor : MonoBehaviour
     }
 
     //Player Movement
-    public void Move(float speed)
+    public void Move(float frontSpeed, float backSpeed)
     {
         if(Input.GetKey(KeyCode.W))
         {
-            Vector3 speedVector = tf.forward * speed;
+            Vector3 speedVector = tf.forward * frontSpeed;
             charCont.SimpleMove(speedVector);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            Vector3 speedVector = -tf.forward * speed;
+            Vector3 speedVector = -tf.forward * backSpeed;
             charCont.SimpleMove(speedVector);
         }
     }
