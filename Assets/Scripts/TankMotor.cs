@@ -21,15 +21,31 @@ public class TankMotor : MonoBehaviour
     //Player Movement
     public void Move(float speed)
     {
-        Vector3 speedVector = tf.forward * speed;
-        charCont.SimpleMove(speedVector);
+        if(Input.GetKey(KeyCode.W))
+        {
+            Vector3 speedVector = tf.forward * speed;
+            charCont.SimpleMove(speedVector);
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            Vector3 speedVector = -tf.forward * speed;
+            charCont.SimpleMove(speedVector);
+        }
     }
 
     //Player Rotation
     public void Rotate(float speed)
     {
-        Vector3 rotateVector = Vector3.up * speed * Time.deltaTime;
-        tf.Rotate(rotateVector, Space.Self);
+        if(Input.GetKey(KeyCode.D))
+        {
+            Vector3 rotateVector = Vector3.up * speed * Time.deltaTime;
+            tf.Rotate(rotateVector, Space.Self);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            Vector3 rotateVector = -Vector3.up * speed * Time.deltaTime;
+            tf.Rotate(rotateVector, Space.Self);
+        }
     }
 
     void Update()
