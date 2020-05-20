@@ -14,7 +14,6 @@ public class TestController : MonoBehaviour
 
     void Update()
     {
-        motor.Move(data.moveSpeedForward,data.moveSpeedBack);
-        motor.Rotate(data.rotateSpeed);
+
     }
 }
