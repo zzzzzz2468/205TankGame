@@ -3,27 +3,7 @@ guid: e897c91fd9cbbbc46947fe68cd63b851
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Armor
-    second: {fileID: 2100000, guid: cb339e0181f3330468a7ef74487c95d1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Details
-    second: {fileID: 2100000, guid: 289ba036cf462954f977c388203c0cbd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rotors
-    second: {fileID: 2100000, guid: 561d32149831a5c41aa89f5a5ba5d4cb, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Treads
-    second: {fileID: 2100000, guid: 8e3fa1a82b73d4f40a6ae5885ce203e2, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0

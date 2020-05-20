@@ -16,12 +16,12 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if(Input.GetKey(KeyCode.W))
-        {
             motor.Move(data.moveSpeedForward);
-        }
+        if(Input.GetKey(KeyCode.S))
+            motor.Move(-data.moveSpeedBack);
         if (Input.GetKey(KeyCode.D))
-        {
             motor.Rotate(data.rotateSpeed);
-        }
+        if (Input.GetKey(KeyCode.A))
+            motor.Rotate(-data.rotateSpeed);
     }
 }
