@@ -230,6 +230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   motor: {fileID: 728546233}
+  data: {fileID: 728546234}
 --- !u!114 &728546233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -254,8 +255,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011534c0e4983f7479a410d05d76f23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  rotateSpeed: 90
+  moveSpeedForward: 5
+  moveSpeedBack: 2
+  rotateSpeed: 75
 --- !u!143 &728546235
 CharacterController:
   m_ObjectHideFlags: 0
@@ -561,8 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 528420d4e2c62484097dbd63dbad8a28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timerDelay: 3
-  timerDelay3: 3
+  shotDelay: 3
 --- !u!4 &2106742921
 Transform:
   m_ObjectHideFlags: 0
@@ -644,5 +645,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5762821933674839872, guid: d981101b22679394dba43eac8cf31822,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: -927199367670048503, guid: e897c91fd9cbbbc46947fe68cd63b851,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d981101b22679394dba43eac8cf31822, type: 3}
