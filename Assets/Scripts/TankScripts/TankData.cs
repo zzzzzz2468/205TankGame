@@ -13,6 +13,7 @@ public class TankData : MonoBehaviour
     public float shellForce = 10.0f;
     public float damageDone = 25.0f;
     public float fireRate = 3.0f;
+    public float shellLifeSpan = 5.0f;
 
     [Header("Health")]
     public float maxHealth = 200.0f;

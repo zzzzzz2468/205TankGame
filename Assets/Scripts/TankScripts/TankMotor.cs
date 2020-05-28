@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
-[RequireComponent(typeof(TankData))]
 public class TankMotor : MonoBehaviour
 {
     //Referencing scripts
     private CharacterController charCont;
-    private TankData data;
     private Transform tf;
 
     void Start()
     {
         charCont = gameObject.GetComponent<CharacterController>();
-        data = gameObject.GetComponent<TankData>();
         tf = gameObject.GetComponent<Transform>();
     }
 
