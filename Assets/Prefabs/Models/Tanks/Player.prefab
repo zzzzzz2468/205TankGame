@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8297921839728891684}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7298151349127574403}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2777155393792725622}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: ShellCreationPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 6365705623038933865}
   - component: {fileID: 6365705623038933863}
   - component: {fileID: 6365705623038933864}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: 6365705623194462345}
   - component: {fileID: 6365705623194462343}
   - component: {fileID: 6365705623194462344}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SideStorage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   - component: {fileID: 6365705623433454107}
   - component: {fileID: 6365705623433454105}
   - component: {fileID: 6365705623433454106}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -356,7 +356,7 @@ GameObject:
   - component: {fileID: 6365705623869724485}
   - component: {fileID: 6365705623869724483}
   - component: {fileID: 6365705623869724484}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   - component: {fileID: 6365705623915070661}
   - component: {fileID: 6365705623915070659}
   - component: {fileID: 6365705623915070660}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rotors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,9 +515,10 @@ GameObject:
   - component: {fileID: 6365705624027258805}
   - component: {fileID: 4819542511027485444}
   - component: {fileID: 728546232}
-  m_Layer: 0
+  - component: {fileID: 6928642268495286724}
+  m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -585,7 +586,7 @@ MonoBehaviour:
   moveSpeedForward: 5
   moveSpeedBack: 2
   rotateSpeed: 50
-  shellForce: 10
+  shellForce: 5
   damageDone: 25
   fireRate: 3
   shellLifeSpan: 5
@@ -619,6 +620,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0574ea921000fc84f8d99a92f1ad0851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6928642268495286724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365705624027258808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65f850b179b48e94ca9e388f6d6a111d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6365705624083629813
 GameObject:
   m_ObjectHideFlags: 0
@@ -630,7 +643,7 @@ GameObject:
   - component: {fileID: 6365705624083629812}
   - component: {fileID: 6365705624083629810}
   - component: {fileID: 6365705624083629811}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TopTreadGuard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +721,7 @@ GameObject:
   - component: {fileID: 6365705624110694896}
   - component: {fileID: 6365705624110694926}
   - component: {fileID: 6365705624110694927}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Treads
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -786,7 +799,7 @@ GameObject:
   - component: {fileID: 6365705624231121745}
   - component: {fileID: 6365705624231121775}
   - component: {fileID: 6365705624231121744}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -864,7 +877,7 @@ GameObject:
   - component: {fileID: 6365705624277629183}
   - component: {fileID: 6365705624277629181}
   - component: {fileID: 6365705624277629182}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonFirst
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -942,7 +955,7 @@ GameObject:
   - component: {fileID: 6365705624280195663}
   - component: {fileID: 6365705624280195661}
   - component: {fileID: 6365705624280195662}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1020,7 +1033,7 @@ GameObject:
   - component: {fileID: 6365705624449597483}
   - component: {fileID: 6365705624449597481}
   - component: {fileID: 6365705624449597482}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: MidGuard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1098,7 +1111,7 @@ GameObject:
   - component: {fileID: 6365705624482378940}
   - component: {fileID: 6365705624482378938}
   - component: {fileID: 6365705624482378939}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackPipes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1176,7 +1189,7 @@ GameObject:
   - component: {fileID: 6365705624485481637}
   - component: {fileID: 6365705624485481635}
   - component: {fileID: 6365705624485481636}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1254,7 +1267,7 @@ GameObject:
   - component: {fileID: 6365705624533619451}
   - component: {fileID: 6365705624533619449}
   - component: {fileID: 6365705624533619450}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TopHatch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1332,7 +1345,7 @@ GameObject:
   - component: {fileID: 6365705624584609874}
   - component: {fileID: 6365705624584609872}
   - component: {fileID: 6365705624584609873}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: BackStorage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1410,7 +1423,7 @@ GameObject:
   - component: {fileID: 6365705624620537067}
   - component: {fileID: 6365705624620537065}
   - component: {fileID: 6365705624620537066}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TopBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1488,7 +1501,7 @@ GameObject:
   - component: {fileID: 6365705624671223450}
   - component: {fileID: 6365705624671223448}
   - component: {fileID: 6365705624671223449}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TreadGuard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1566,7 +1579,7 @@ GameObject:
   - component: {fileID: 6365705624768266883}
   - component: {fileID: 6365705624768266881}
   - component: {fileID: 6365705624768266882}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FrontPipes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1644,7 +1657,7 @@ GameObject:
   - component: {fileID: 6365705624909882157}
   - component: {fileID: 6365705624909882155}
   - component: {fileID: 6365705624909882156}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonPipes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1722,7 +1735,7 @@ GameObject:
   - component: {fileID: 6365705624957405559}
   - component: {fileID: 6365705624957405557}
   - component: {fileID: 6365705624957405558}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonThird
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1800,7 +1813,7 @@ GameObject:
   - component: {fileID: 6365705625040864487}
   - component: {fileID: 6365705625040864485}
   - component: {fileID: 6365705625040864486}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: CannonSecond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1879,7 +1892,7 @@ GameObject:
   - component: {fileID: 8739105197359110160}
   - component: {fileID: 4964808322406088369}
   - component: {fileID: 1704460202248795129}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

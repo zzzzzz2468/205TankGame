@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(TankData))]
-public class EnemyController : MonoBehaviour
+public class Health : MonoBehaviour
 {
-    /*private TankData data;
+    private TankData data;
     private float health;
 
     private void Start()
@@ -16,16 +16,24 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
-        if(health <= 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
         }
 
-        Debug.Log(health);
+        if(gameObject.layer == 8)
+        {
+            Debug.Log("Enemy Health is " + health);
+        }
+        else
+        {
+            Debug.Log("Player Health is " + health);
+        }
+
     }
 
     public void UpdateHealth(float newHealth)
     {
         health -= newHealth;
-    }*/
+    }
 }

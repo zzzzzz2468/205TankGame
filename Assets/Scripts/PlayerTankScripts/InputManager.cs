@@ -24,30 +24,15 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
-        HandleControlInputs();
-        HandleAttackInputs();
+        HandleInputs();
     }
 
-    void HandleControlInputs()
+    //Controls the two movement schemes implemented
+    void HandleInputs()
     {
         switch (input)
         {
-            case inputScheme.arrowKeys:
-                if (Input.GetKey(KeyCode.UpArrow))
-                    motor.Move(data.moveSpeedForward);
-                else if (Input.GetKey(KeyCode.DownArrow))
-                    motor.Move(-data.moveSpeedBack);
-                else
-                    motor.Move(0);
-
-                if (Input.GetKey(KeyCode.RightArrow))
-                    motor.Rotate(data.rotateSpeed);
-                else if (Input.GetKey(KeyCode.LeftArrow))
-                    motor.Rotate(-data.rotateSpeed);
-                else
-                    motor.Rotate(0);
-                break;
-
+            //Player1 Movement set
             case inputScheme.WASD:
                 if (Input.GetKey(KeyCode.W))
                     motor.Move(data.moveSpeedForward);
@@ -62,19 +47,37 @@ public class InputManager : MonoBehaviour
                     motor.Rotate(-data.rotateSpeed);
                 else
                     motor.Rotate(0);
+
+                if (Input.GetKeyDown(KeyCode.Space))
+                    attack.Shoot();
+
                 break;
 
+            //Player2 movement set
+            case inputScheme.arrowKeys:
+                if (Input.GetKey(KeyCode.UpArrow))
+                    motor.Move(data.moveSpeedForward);
+                else if (Input.GetKey(KeyCode.DownArrow))
+                    motor.Move(-data.moveSpeedBack);
+                else
+                    motor.Move(0);
+
+                if (Input.GetKey(KeyCode.RightArrow))
+                    motor.Rotate(data.rotateSpeed);
+                else if (Input.GetKey(KeyCode.LeftArrow))
+                    motor.Rotate(-data.rotateSpeed);
+                else
+                    motor.Rotate(0);
+
+                if (Input.GetKeyDown(KeyCode.Mouse0))
+                    attack.Shoot();
+
+                break;
+
+            //If no movement is selected
             default:
                 Debug.LogError("Input Scheme not selected");
                 break;
-        }
-    }
-
-    void HandleAttackInputs()
-    {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            attack.Shoot();
         }
     }
 }
