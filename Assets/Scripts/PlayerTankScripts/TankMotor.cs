@@ -18,19 +18,14 @@ public class TankMotor : MonoBehaviour
     //Player Movement
     public void Move(float Speed)
     {
-            Vector3 speedVector = tf.forward * Speed;
-            charCont.SimpleMove(speedVector);
+        Vector3 speedVector = tf.forward * Speed;
+        charCont.SimpleMove(speedVector);
     }
 
     //Player Rotation
     public void Rotate(float speed)
     {
-            Vector3 rotateVector = Vector3.up * speed * Time.deltaTime;
-            tf.Rotate(rotateVector, Space.Self);
-    }
-
-    void Update()
-    {
-        
+        Vector3 rotateVector = Vector3.up * speed * Time.deltaTime;
+        tf.Rotate(rotateVector, Space.Self);
     }
 }

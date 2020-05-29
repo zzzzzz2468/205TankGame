@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(TankData))]
 [RequireComponent(typeof(TankMotor))]
+[RequireComponent(typeof(Attack))]
 
 public class InputManager : MonoBehaviour
 {
@@ -12,18 +13,22 @@ public class InputManager : MonoBehaviour
 
     private TankMotor motor;
     private TankData data;
+    private Attack attack;
+
     void Start()
     {
-        motor = gameObject.GetComponent<TankMotor>();
-        data = gameObject.GetComponent<TankData>();
+        motor = GetComponent<TankMotor>();
+        data = GetComponent<TankData>();
+        attack = GetComponent<Attack>();
     }
 
     void Update()
     {
-        HandleInput();
+        HandleControlInputs();
+        HandleAttackInputs();
     }
 
-    void HandleInput()
+    void HandleControlInputs()
     {
         switch (input)
         {
@@ -62,6 +67,14 @@ public class InputManager : MonoBehaviour
             default:
                 Debug.LogError("Input Scheme not selected");
                 break;
+        }
+    }
+
+    void HandleAttackInputs()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            attack.Shoot();
         }
     }
 }

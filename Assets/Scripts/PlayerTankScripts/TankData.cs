@@ -20,4 +20,16 @@ public class TankData : MonoBehaviour
 
     [Header("Score")]
     public int score = 0;
+
+    [Header("Models")]
+    public GameObject Shell;
+    public GameObject ShellHolder;
+    public GameObject endOfBarrel;
+
+    private TankData _tankData;
+
+    public void Initilization(TankData data)
+    {
+        _tankData = data;
+    }
 }
