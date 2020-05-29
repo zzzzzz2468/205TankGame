@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
+    //creates what every manager starts with, makes sure it is in scene and deletes extra
     private static T instance;
     public static T Instance
     {

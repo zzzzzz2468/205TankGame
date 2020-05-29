@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    //declares variables
     public static GameManager gamemanager;
     public GameObject player;
     public GameObject bullet;

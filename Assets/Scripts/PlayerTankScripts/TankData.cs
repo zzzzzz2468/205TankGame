@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TankData : MonoBehaviour
 {
+    //declares and stores variables
     [Header("Movement")]
     public float moveSpeedForward = 5.0f;
     public float moveSpeedBack = 2.0f;
@@ -28,6 +29,7 @@ public class TankData : MonoBehaviour
 
     private TankData _tankData;
 
+    //Sends data to other scripts
     public void Initilization(TankData data)
     {
         _tankData = data;

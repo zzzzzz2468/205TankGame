@@ -2,19 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//required scripts
 [RequireComponent(typeof(TankData))]
 [RequireComponent(typeof(TankMotor))]
 [RequireComponent(typeof(Attack))]
-
 public class InputManager : MonoBehaviour
 {
+    //state machine for move schemes
     public enum inputScheme { WASD, arrowKeys };
     public inputScheme input = inputScheme.WASD;
 
+    //Declares the needed scripts
     private TankMotor motor;
     private TankData data;
     private Attack attack;
 
+    //finds the needed scripts
     void Start()
     {
         motor = GetComponent<TankMotor>();
@@ -22,6 +25,7 @@ public class InputManager : MonoBehaviour
         attack = GetComponent<Attack>();
     }
 
+    //Calls the inputs
     void Update()
     {
         HandleInputs();

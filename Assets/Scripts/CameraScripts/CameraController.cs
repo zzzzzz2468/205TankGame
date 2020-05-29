@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    //declares variables
     public GameObject target;
     public float damping = 1;
     Vector3 offset;
 
+    //sets camera position
     private void Start()
     {
         offset = target.transform.position - transform.position;
     }
 
+    //changes the camera position as player moves, moves with dampining
     private void LateUpdate()
     {
         float currentAngle = transform.eulerAngles.y;

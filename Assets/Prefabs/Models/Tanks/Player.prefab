@@ -586,7 +586,7 @@ MonoBehaviour:
   moveSpeedForward: 5
   moveSpeedBack: 2
   rotateSpeed: 50
-  shellForce: 5
+  shellForce: 75
   damageDone: 25
   fireRate: 3
   shellLifeSpan: 5

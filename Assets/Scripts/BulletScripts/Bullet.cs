@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    //declares variable
     private TankData _tankData;
-
     private Rigidbody _rigidBody;
+
+    //finds rigidbody
     public Rigidbody RigidBody
     {
         get
@@ -16,13 +18,14 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    void Update()
+    //starts to destroy and adds force to the shell on creation
+    void Start()
     {
         AddForce();
-        //starts to destroy the bullet
         StartCoroutine(Destroy());
     }
 
+    //adds force to the shell
     void AddForce()
     {
         RigidBody.AddForce(transform.forward * _tankData.shellForce, ForceMode.Impulse);
@@ -35,11 +38,13 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
+    //gets data from tankdata
     public void Initilization(TankData data)
     {
         _tankData = data;
     }
 
+    //detects if collides with player, enemy or anything else, and does damage if needed then dies
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)

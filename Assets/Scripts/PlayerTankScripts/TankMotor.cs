@@ -9,6 +9,7 @@ public class TankMotor : MonoBehaviour
     private CharacterController charCont;
     private Transform tf;
 
+    //Finds scripts
     void Start()
     {
         charCont = gameObject.GetComponent<CharacterController>();
