@@ -753,11 +753,6 @@ PrefabInstance:
       propertyPath: ShellHolder
       value: 
       objectReference: {fileID: 1196126}
-    - target: {fileID: 6365705624027258805, guid: 739ce804dd34c1f449bcc42510d14d01,
-        type: 3}
-      propertyPath: shellForce
-      value: 75
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 739ce804dd34c1f449bcc42510d14d01, type: 3}
 --- !u!1001 &6941150355164433165
