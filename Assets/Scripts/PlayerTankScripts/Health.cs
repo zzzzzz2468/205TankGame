@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
         {
             Debug.Log("Enemy Health is " + health);
         }
-        else
+        else if(gameObject.layer == 9)
         {
             Debug.Log("Player Health is " + health);
         }
