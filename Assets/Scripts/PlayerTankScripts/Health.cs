@@ -21,20 +21,13 @@ public class Health : MonoBehaviour
     {
         //destroys if zero health
         if (health <= 0)
-        {
             Destroy(gameObject);
-        }
 
         //logs the health remaining
         if(gameObject.layer == 8)
-        {
             Debug.Log("Enemy Health is " + health);
-        }
         else if(gameObject.layer == 9)
-        {
             Debug.Log("Player Health is " + health);
-        }
-
     }
 
     //allows bullet script to change health
