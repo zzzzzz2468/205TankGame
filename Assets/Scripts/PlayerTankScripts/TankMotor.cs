@@ -30,6 +30,7 @@ public class TankMotor : MonoBehaviour
         tf.Rotate(rotateVector, Space.Self);
     }
 
+    //Enemy Rotation
     public bool RotateTowards(Vector3 target, float speed)
     {
         Vector3 vectorToTarget = target - tf.position;
@@ -37,7 +38,7 @@ public class TankMotor : MonoBehaviour
         if (targetRotation == tf.rotation)
             return false;
 
-        tf.rotation = Quaternion.RotateTowards(tf.rotation, targetRotation, speed);
+        tf.rotation = Quaternion.RotateTowards(tf.rotation, targetRotation, speed * Time.deltaTime);
         return false;
     }
 }
