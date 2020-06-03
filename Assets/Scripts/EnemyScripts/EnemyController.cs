@@ -13,6 +13,9 @@ public class EnemyController : MonoBehaviour
     public enum LoopType{ Stop, Loop, PingPong };
     public LoopType loopType;
 
+    public enum Personality{ ScardyClause, Aggresive, Ranged, Hider, Tactician}
+    public Personality personality;
+
     private TankData data;
     private TankMotor motor;
     private Transform tf;
@@ -39,38 +42,48 @@ public class EnemyController : MonoBehaviour
 
         if(Vector3.SqrMagnitude(waypoints[curWaypoint].position - tf.position) <= (closeDistance * closeDistance))
         {
-            if (loopType == LoopType.Stop)
+            switch (loopType)
             {
-                if (curWaypoint < waypoints.Length - 1)
-                    curWaypoint++;
+                case LoopType.Stop:
+                    LoopStop();
+                    break;
+                case LoopType.PingPong:
+                    LoopPingPong();
+                    break;
+                case LoopType.Loop:
+                    LoopLoop();
+                    break;
+                default:
+                    Debug.LogWarning("No loop type; EnemyController");
+                    break;
             }
-            else if (loopType == LoopType.PingPong)
-            {
-                if(isPatrolForward)
-                {
-                    if (curWaypoint < waypoints.Length - 1)
-                        curWaypoint++;
-                }
-                else
-                {
-                    if (curWaypoint > 0)
-                        curWaypoint--;
-                    else
-                    {
-                        isPatrolForward = false;
-                        curWaypoint--;
-                    }
-                }
-            }
-            else if (loopType == LoopType.Loop)
-            {
-                if (curWaypoint < waypoints.Length - 1)
-                    curWaypoint++;
-                else
-                    curWaypoint = 0;
-            }
-            else
-                Debug.LogWarning("Not a loop type; EnemyController");
         }
+    }
+
+    private void LoopStop()
+    {
+        if (curWaypoint < waypoints.Length - 1)
+            curWaypoint++;
+    }
+
+    private void LoopPingPong()
+    {
+        if (isPatrolForward && curWaypoint < waypoints.Length - 1)
+            curWaypoint++;
+        else if(!isPatrolForward && curWaypoint > 0)
+            curWaypoint--;
+        else if (!isPatrolForward && curWaypoint <= 0)
+        {
+            isPatrolForward = false;
+            curWaypoint--;
+        }
+    }
+
+    private void LoopLoop()
+    {
+        if (curWaypoint < waypoints.Length - 1)
+            curWaypoint++;
+        else
+            curWaypoint = 0;
     }
 }
