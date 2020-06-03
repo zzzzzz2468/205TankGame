@@ -4,21 +4,20 @@ using UnityEngine;
 
 [RequireComponent(typeof(TankData))]
 [RequireComponent(typeof(TankMotor))]
-public class EnemyController : MonoBehaviour
+[RequireComponent(typeof(EnemyPersonality))]
+public class EnemyMovement : MonoBehaviour
 {
     public Transform[] waypoints;
     public float closeDistance = 2.0f;
     public int curWaypoint = 0;
 
-    public enum LoopType{ Stop, Loop, PingPong };
+    public enum LoopType { Stop, Loop, PingPong };
     public LoopType loopType;
-
-    public enum Personality{ ScardyClause, Aggresive, Ranged, Hider, Tactician}
-    public Personality personality;
 
     private TankData data;
     private TankMotor motor;
     private Transform tf;
+    private EnemyPersonality personality;
 
     private bool isPatrolForward = true;
 
@@ -27,11 +26,12 @@ public class EnemyController : MonoBehaviour
         data = GetComponent<TankData>();
         motor = GetComponent<TankMotor>();
         tf = GetComponent<Transform>();
+        personality = GetComponent<EnemyPersonality>();
     }
 
     private void Update()
     {
-        if(motor.RotateTowards(waypoints[curWaypoint].position, data.rotateSpeed))
+        if (motor.RotateTowards(waypoints[curWaypoint].position, data.rotateSpeed))
         {
 
         }
@@ -40,7 +40,7 @@ public class EnemyController : MonoBehaviour
             motor.Move(data.moveSpeedForward);
         }
 
-        if(Vector3.SqrMagnitude(waypoints[curWaypoint].position - tf.position) <= (closeDistance * closeDistance))
+        if (Vector3.SqrMagnitude(waypoints[curWaypoint].position - tf.position) <= (closeDistance * closeDistance))
         {
             switch (loopType)
             {
@@ -70,7 +70,7 @@ public class EnemyController : MonoBehaviour
     {
         if (isPatrolForward && curWaypoint < waypoints.Length - 1)
             curWaypoint++;
-        else if(!isPatrolForward && curWaypoint > 0)
+        else if (!isPatrolForward && curWaypoint > 0)
             curWaypoint--;
         else if (!isPatrolForward && curWaypoint <= 0)
         {

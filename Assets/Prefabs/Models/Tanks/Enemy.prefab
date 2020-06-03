@@ -1850,11 +1850,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5300224015074158155}
-  - component: {fileID: 1630223324622039199}
   - component: {fileID: 1853907859}
   - component: {fileID: 1853907860}
   - component: {fileID: 1150157992}
   - component: {fileID: 1150157991}
+  - component: {fileID: 842584915}
+  - component: {fileID: 842584916}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -1880,26 +1881,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1630223324622039199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9211396637776909400}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a5933116020d854bbedd19736ade302, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  closeDistance: 2.5
-  curWaypoint: 0
-  loopType: 0
-  personality: 0
 --- !u!114 &1853907859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1966,3 +1947,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60678c965fd2811489c2892e16ab89b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &842584915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211396637776909400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca69e795e392e1749bcf471b2782580c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  personality: 0
+  enemyMode: 0
+--- !u!114 &842584916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9211396637776909400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 837a20c47a41bb14bad14c2de831aa41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints: []
+  closeDistance: 2
+  curWaypoint: 0
+  loopType: 0
