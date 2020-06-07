@@ -32,11 +32,11 @@ public class EnemyPersonality : MonoBehaviour
     {
         if (enemyMode == EnemyMode.Chase)
         {
-            Chasing();
+            //Chasing();
         }
         if (enemyMode == EnemyMode.Flee)
         {
-            Fleeing();
+            //Fleeing();
         }
     }
 

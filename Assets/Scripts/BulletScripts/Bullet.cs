@@ -5,7 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     //declares variable
-    private TankData _tankData;
+    private TankData tankData;
     private Rigidbody _rigidBody;
 
     //finds rigidbody
@@ -28,20 +28,20 @@ public class Bullet : MonoBehaviour
     //adds force to the shell
     void AddForce()
     {
-        RigidBody.AddForce(transform.forward * _tankData.shellForce, ForceMode.Impulse);
+        RigidBody.AddForce(transform.forward * tankData.shellForce, ForceMode.Impulse);
     }
 
     //destroys the bullet after shellLifeSpan
     IEnumerator Destroy()
     {
-        yield return new WaitForSeconds(_tankData.shellLifeSpan);
+        yield return new WaitForSeconds(tankData.shellLifeSpan);
         Destroy(gameObject);
     }
 
     //gets data from tankdata
     public void Initilization(TankData data)
     {
-        _tankData = data;
+        tankData = data;
     }
 
     //detects if collides with player, enemy or anything else, and does damage if needed then dies
@@ -49,7 +49,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
-            collision.gameObject.GetComponent<Health>().UpdateHealth(_tankData.damageDone);
+            collision.gameObject.GetComponent<Health>().UpdateHealth(tankData.damageDone);
             Destroy(gameObject);
             Debug.Log("Collision");
         }

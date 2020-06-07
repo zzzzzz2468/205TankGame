@@ -4,21 +4,23 @@ using UnityEngine;
 
 [RequireComponent(typeof(TankData))]
 [RequireComponent(typeof(TankMotor))]
-[RequireComponent(typeof(EnemyPersonality))]
 public class EnemyMovement : MonoBehaviour
 {
+    //Waypoint Variables
     public Transform[] waypoints;
     public float closeDistance = 2.0f;
     public int curWaypoint = 0;
 
+    //LoopType Enum
     public enum LoopType { Stop, Loop, PingPong };
     public LoopType loopType;
 
+    //Scripts
     private TankData data;
     private TankMotor motor;
     private Transform tf;
-    private EnemyPersonality personality;
 
+    //Other variables
     private bool isPatrolForward = true;
 
     private void Start()
@@ -26,64 +28,42 @@ public class EnemyMovement : MonoBehaviour
         data = GetComponent<TankData>();
         motor = GetComponent<TankMotor>();
         tf = GetComponent<Transform>();
-        personality = GetComponent<EnemyPersonality>();
     }
 
-    private void Update()
+    void Update()
     {
-        if (motor.RotateTowards(waypoints[curWaypoint].position, data.rotateSpeed))
-        {
+        motor.RotateTowards(waypoints[curWaypoint].position, data.rotateSpeed);
+        motor.Move(data.moveSpeedForward);
 
-        }
-        else
-        {
-            motor.Move(data.moveSpeedForward);
-        }
-
-        if (Vector3.SqrMagnitude(waypoints[curWaypoint].position - tf.position) <= (closeDistance * closeDistance))
-        {
-            switch (loopType)
-            {
-                case LoopType.Stop:
-                    LoopStop();
-                    break;
-                case LoopType.PingPong:
-                    LoopPingPong();
-                    break;
-                case LoopType.Loop:
-                    LoopLoop();
-                    break;
-                default:
-                    Debug.LogWarning("No loop type; EnemyController");
-                    break;
-            }
-        }
+        if (Vector3.SqrMagnitude(waypoints[curWaypoint].position - tf.position) > (closeDistance * closeDistance))
+            return;
+        LoopTypeStateMachine();
     }
 
-    private void LoopStop()
+    void LoopTypeStateMachine()
     {
-        if (curWaypoint < waypoints.Length - 1)
-            curWaypoint++;
-    }
-
-    private void LoopPingPong()
-    {
-        if (isPatrolForward && curWaypoint < waypoints.Length - 1)
-            curWaypoint++;
-        else if (!isPatrolForward && curWaypoint > 0)
-            curWaypoint--;
-        else if (!isPatrolForward && curWaypoint <= 0)
+        switch (loopType)
         {
-            isPatrolForward = false;
-            curWaypoint--;
+            case LoopType.Stop:
+                if (curWaypoint < waypoints.Length - 1)
+                    curWaypoint++;
+                break;
+            case LoopType.PingPong:
+                if (isPatrolForward)
+                    if (curWaypoint < waypoints.Length - 1)
+                        curWaypoint++;
+                    else
+                    {
+                        curWaypoint--;
+                        isPatrolForward = curWaypoint <= 0;
+                    }
+                break;
+            case LoopType.Loop:
+                curWaypoint += curWaypoint < waypoints.Length - 1 ? 1 : 0;
+                break;
+            default:
+                Debug.LogWarning("Not a loop type: EnemyController");
+                break;
         }
-    }
-
-    private void LoopLoop()
-    {
-        if (curWaypoint < waypoints.Length - 1)
-            curWaypoint++;
-        else
-            curWaypoint = 0;
     }
 }
