@@ -13,10 +13,29 @@ public class EnemyPersonality : MonoBehaviour
     [Header("Target")]
     public Transform target;
 
-    public enum Personality { ScardyClause, Aggresive, Ranged, Hider, Tactician, Turret }
+    public enum Personality
+    {
+        ScardyClause,
+        Aggresive,
+        Ranged,
+        Hider,
+        Tactician,
+        Turret
+    }
     public Personality personality;
 
-    public enum EnemyMode { Flee, Chase, Idle, Patrol }
+    public enum EnemyMode
+    {
+        Flee,
+        Chase,
+        Idle,
+        Patrol,
+        Hide,
+        Wait,
+        Attack,
+        Sneak,
+        Charge
+    }
     public EnemyMode enemyMode;
 
     //LoopType Enum
@@ -89,6 +108,21 @@ public class EnemyPersonality : MonoBehaviour
             case EnemyMode.Patrol:
                 Patrol();
                 break;
+            case EnemyMode.Hide:
+                Hide();
+                break;
+            case EnemyMode.Wait:
+                Hide();
+                break;
+            case EnemyMode.Attack:
+                Hide();
+                break;
+            case EnemyMode.Sneak:
+                Hide();
+                break;
+            case EnemyMode.Charge:
+                Hide();
+                break;
             default:
                 Debug.LogWarning("Not an available mode: EnemyPersonality");
                 break;
@@ -147,6 +181,31 @@ public class EnemyPersonality : MonoBehaviour
     }
 
     private void Idle()
+    {
+
+    }
+
+    private void Hide()
+    {
+
+    }
+
+    private void Wait()
+    {
+
+    }
+
+    private void Attack()
+    {
+
+    }
+
+    private void Sneak()
+    {
+
+    }
+
+    private void Charge()
     {
 
     }
