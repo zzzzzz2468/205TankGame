@@ -4,11 +4,13 @@ using UnityEngine;
 
 [RequireComponent(typeof(TankData))]
 [RequireComponent(typeof(TankMotor))]
+[RequireComponent(typeof(Attack))]
 public class EnemyPersonality : MonoBehaviour
 {
     private TankData data;
     private TankMotor motor;
     private Transform tf;
+    private Attack attack;
 
     [Header("Target")]
     public Transform target;
@@ -55,6 +57,7 @@ public class EnemyPersonality : MonoBehaviour
         data = GetComponent<TankData>();
         motor = GetComponent<TankMotor>();
         tf = GetComponent<Transform>();
+        attack = GetComponent<Attack>();
 
         EnemyPersonalityStateMachine();
     }
@@ -69,22 +72,22 @@ public class EnemyPersonality : MonoBehaviour
         switch (personality)
         {
             case Personality.ScardyClause:
-                //ScardyClause();
+                ScardyClause();
                 break;
             case Personality.Aggresive:
-                //Aggresive();
+                Aggresive();
                 break;
             case Personality.Ranged:
-                //Ranged();
+                Ranged();
                 break;
             case Personality.Hider:
-                //Hider();
+                Hider();
                 break;
             case Personality.Tactician:
-                //Tactician();
+                Tactician();
                 break;
             case Personality.Turret:
-                //Turret();
+                Turret();
                 break;
             default:
                 Debug.LogWarning("Not an available personality: EnemyPersonality");
@@ -112,16 +115,16 @@ public class EnemyPersonality : MonoBehaviour
                 Hide();
                 break;
             case EnemyMode.Wait:
-                Hide();
+                Wait();
                 break;
             case EnemyMode.Attack:
-                Hide();
+                attack.Shoot();
                 break;
             case EnemyMode.Sneak:
-                Hide();
+                Sneak();
                 break;
             case EnemyMode.Charge:
-                Hide();
+                Charge();
                 break;
             default:
                 Debug.LogWarning("Not an available mode: EnemyPersonality");
@@ -159,6 +162,7 @@ public class EnemyPersonality : MonoBehaviour
     private void Turret()
     {
         //Stays still and fires
+        enemyMode = EnemyMode.Attack;
     }
 
 
@@ -191,11 +195,6 @@ public class EnemyPersonality : MonoBehaviour
     }
 
     private void Wait()
-    {
-
-    }
-
-    private void Attack()
     {
 
     }

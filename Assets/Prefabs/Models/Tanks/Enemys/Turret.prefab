@@ -824,8 +824,9 @@ GameObject:
   - component: {fileID: 5897001259148798894}
   - component: {fileID: 5897001259148798881}
   - component: {fileID: 3033702569958280130}
+  - component: {fileID: 2316608268474296583}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: Turret
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -864,9 +865,9 @@ MonoBehaviour:
   moveSpeedForward: 5
   moveSpeedBack: 2
   rotateSpeed: 90
-  shellForce: 10
+  shellForce: 75
   damageDone: 25
-  fireRate: 3
+  fireRate: 1.5
   shellLifeSpan: 5
   maxHealth: 100
   score: 0
@@ -928,7 +929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  personality: 0
+  personality: 5
   enemyMode: 3
   loopType: 0
   waypoints:
@@ -937,6 +938,18 @@ MonoBehaviour:
   - {fileID: 0}
   closeDistance: 3
   curWaypoint: 0
+--- !u!114 &2316608268474296583
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315545524643167070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0574ea921000fc84f8d99a92f1ad0851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3563552296141703495
 GameObject:
   m_ObjectHideFlags: 0

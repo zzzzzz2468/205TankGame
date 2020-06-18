@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 8583431620424483381}
   - component: {fileID: 8583431620424483386}
   - component: {fileID: 923733357724181081}
+  - component: {fileID: 421238388660182407}
   m_Layer: 8
-  m_Name: Enemy
+  m_Name: Aggressive
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +55,7 @@ MonoBehaviour:
   moveSpeedForward: 5
   moveSpeedBack: 2
   rotateSpeed: 90
-  shellForce: 10
+  shellForce: 75
   damageDone: 25
   fireRate: 3
   shellLifeSpan: 5
@@ -118,7 +119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  personality: 0
+  personality: 1
   enemyMode: 3
   loopType: 0
   waypoints:
@@ -127,6 +128,18 @@ MonoBehaviour:
   - {fileID: 0}
   closeDistance: 3
   curWaypoint: 0
+--- !u!114 &421238388660182407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633615448333898437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0574ea921000fc84f8d99a92f1ad0851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1364585020451715480
 GameObject:
   m_ObjectHideFlags: 0

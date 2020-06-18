@@ -824,6 +824,7 @@ GameObject:
   - component: {fileID: 6209514099622911318}
   - component: {fileID: 6209514099622911321}
   - component: {fileID: 3306516377163562298}
+  - component: {fileID: 7559824973219686678}
   m_Layer: 8
   m_Name: Ranged
   m_TagString: Enemy
@@ -864,7 +865,7 @@ MonoBehaviour:
   moveSpeedForward: 5
   moveSpeedBack: 2
   rotateSpeed: 90
-  shellForce: 10
+  shellForce: 75
   damageDone: 25
   fireRate: 3
   shellLifeSpan: 5
@@ -928,7 +929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  personality: 0
+  personality: 2
   enemyMode: 3
   loopType: 0
   waypoints:
@@ -937,6 +938,18 @@ MonoBehaviour:
   - {fileID: 0}
   closeDistance: 3
   curWaypoint: 0
+--- !u!114 &7559824973219686678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024682119791644070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0574ea921000fc84f8d99a92f1ad0851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3737182164355884795
 GameObject:
   m_ObjectHideFlags: 0
