@@ -4,5 +4,6 @@ using UnityEngine;
 
 public interface IHealth
 {
+    //takes damage
     void TakeDamage(float damage);
 }

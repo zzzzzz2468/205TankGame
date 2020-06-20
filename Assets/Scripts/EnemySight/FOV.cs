@@ -6,6 +6,7 @@ public class FOV : MonoBehaviour
 {
     public float fieldOfView = 60.0f;
 
+    //detects if player is in the sight of the AI
     public bool CanSee(GameObject target)
     {
         Transform targetTransform = target.transform;

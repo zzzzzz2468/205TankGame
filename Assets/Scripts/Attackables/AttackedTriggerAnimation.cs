@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class AttackedTriggerAnimation : MonoBehaviour, IAttackable
 {
+    //changes animation on damage
     private Animator animator;
     [SerializeField] private string triggerToSet;
 

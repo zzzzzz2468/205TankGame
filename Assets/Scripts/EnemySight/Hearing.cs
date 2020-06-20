@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Hearing : MonoBehaviour
 {
+    //varaibles
     public float hearingDistance;
     private Color gizmoColor;
 
+    //if enemy can hear player
     public bool CanHear(GameObject target)
     {
         NoiseMaker targetNoiseMaker = target.GetComponent<NoiseMaker>();
@@ -24,6 +26,7 @@ public class Hearing : MonoBehaviour
         return false;
     }
 
+    //draws gizmos
     private void OnDrawGizmos()
     {
         Gizmos.color = gizmoColor;
