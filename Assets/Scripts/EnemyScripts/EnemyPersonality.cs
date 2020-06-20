@@ -6,12 +6,15 @@ using UnityEngine;
 [RequireComponent(typeof(TankMotor))]
 [RequireComponent(typeof(Shoot))]
 [RequireComponent(typeof(FOV))]
+[RequireComponent(typeof(Hearing))]
 public class EnemyPersonality : MonoBehaviour
 {
     private TankData data;
     private TankMotor motor;
     private Transform tf;
     private Shoot shoot;
+    private FOV fov;
+    private Hearing hearing;
 
     [Header("Target")]
     public Transform target;
@@ -38,7 +41,8 @@ public class EnemyPersonality : MonoBehaviour
         Attack,
         Sneak,
         Charge,
-        Search
+        Search,
+        Rotate
     }
     public EnemyMode enemyMode;
 
@@ -60,13 +64,17 @@ public class EnemyPersonality : MonoBehaviour
         motor = GetComponent<TankMotor>();
         tf = GetComponent<Transform>();
         shoot = GetComponent<Shoot>();
-
-        EnemyPersonalityStateMachine();
+        fov = GetComponent<FOV>();
+        hearing = GetComponent<Hearing>();
     }
 
     void Update()
     {
-        EnemyModeStateMachine();
+        Debug.Log("See = " + fov.CanSee(target.gameObject));
+        Debug.Log("Hear = " + hearing.CanHear(target.gameObject));
+
+
+        EnemyPersonalityStateMachine();
     }
 
     void EnemyPersonalityStateMachine()
@@ -131,6 +139,9 @@ public class EnemyPersonality : MonoBehaviour
             case EnemyMode.Charge:
                 Charge();
                 break;
+            case EnemyMode.Rotate:
+                motor.RotateTowards(target.position, data.rotateSpeed);
+                break;
             default:
                 Debug.LogWarning("Not an available mode: EnemyPersonality");
                 break;
@@ -166,7 +177,13 @@ public class EnemyPersonality : MonoBehaviour
     private void Turret()
     {
         //Stays still and fires
-        enemyMode = EnemyMode.Attack;
+        if (fov.CanSee(target.gameObject) && hearing.CanHear(target.gameObject))
+            enemyMode = EnemyMode.Attack;
+        else if (hearing.CanHear(target.gameObject))
+            enemyMode = EnemyMode.Rotate;
+        else if (!hearing.CanHear(target.gameObject))
+            enemyMode = EnemyMode.Idle;
+        EnemyModeStateMachine();
     }
 
 

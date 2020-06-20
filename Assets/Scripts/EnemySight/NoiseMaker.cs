@@ -16,11 +16,6 @@ public class NoiseMaker : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if(noiseRadius > 0)

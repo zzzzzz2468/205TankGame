@@ -14,7 +14,7 @@ public class Hearing : MonoBehaviour
         if(targetNoiseMaker != null)
         {
             Vector3 vectorToTarget = target.transform.position - transform.position;
-            if(hearingDistance + targetNoiseMaker.NoiseRadius < vectorToTarget.magnitude)
+            if(hearingDistance + targetNoiseMaker.NoiseRadius > vectorToTarget.magnitude)
             {
                 gizmoColor = Color.green;
                 return true;

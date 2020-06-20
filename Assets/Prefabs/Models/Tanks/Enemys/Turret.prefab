@@ -828,6 +828,8 @@ GameObject:
   - component: {fileID: 1155321887}
   - component: {fileID: 1155321888}
   - component: {fileID: 6065948210145576130}
+  - component: {fileID: 1155321890}
+  - component: {fileID: 1155321889}
   m_Layer: 8
   m_Name: Turret
   m_TagString: Enemy
@@ -965,7 +967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225e0e97accf1c54bb68a6cb536f872e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldOfView: 60
+  fieldOfView: 0
 --- !u!114 &1155321888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,6 +993,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hearingDistance: 10
+--- !u!114 &1155321890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315545524643167070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569a649f64aa0244b81dd80bc6e4a38a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1155321889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315545524643167070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 083193f63315d9546951cd7bc8b158f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3563552296141703495
 GameObject:
   m_ObjectHideFlags: 0

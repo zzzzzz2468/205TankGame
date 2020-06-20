@@ -56,20 +56,9 @@ public class Bullet : MonoBehaviour
 
             foreach(IAttackable attackable in attackables)
             {
+                Destroy(gameObject);
                 attackable.OnAttack(attacker, attack);
             }
         }
-        /*
-        if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
-        {
-            collision.gameObject.GetComponent<Health>().UpdateHealth(tankData.damageDone);
-            Destroy(gameObject);
-            Debug.Log("Collision");
-        }
-        else
-        {
-            Destroy(gameObject);
-            Debug.Log("Collision");
-        }*/
     }
 }
