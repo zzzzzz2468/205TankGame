@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Pathfinding : MonoBehaviour
 {
+    private EnemyPersonality personallity;
     Grid grid;
     public Transform startPos;
     public Transform targetPos;
 
     private void Awake()
     {
-        grid = GetComponent<Grid>();
+        personallity = GetComponent<EnemyPersonality>();
+        grid = GameManager.gamemanager.GetComponent<Grid>();
+        startPos = transform;
+        targetPos = personallity.target;
     }
 
     private void Update()
@@ -44,7 +48,6 @@ public class Pathfinding : MonoBehaviour
             if(curNode == targetNode)
             {
                 GetFinalPath(startNode, targetNode);
-                break;
             }
 
             foreach(Node NeighborNode in grid.GetNeighboringNode(curNode))

@@ -148,6 +148,11 @@ public class EnemyPersonality : MonoBehaviour
     private void ScardyClause()
     {
         //Hides/Shoots and hides
+        if (fov.CanSee(target.gameObject) && hearing.CanHear(target.gameObject))
+            enemyMode = EnemyMode.Flee;
+        else if (!hearing.CanHear(target.gameObject))
+            enemyMode = EnemyMode.Patrol;
+        EnemyModeStateMachine();
     }
 
     private void Aggresive()
@@ -157,7 +162,7 @@ public class EnemyPersonality : MonoBehaviour
         Debug.Log(distance);
         if (distance <= data.AggCloseDistance)
             enemyMode = EnemyMode.Attack;
-        else if (fov.CanSee(target.gameObject) && hearing.CanHear(target.gameObject) && distance > data.AggCloseDistance)
+        else if (fov.CanSee(target.gameObject) && hearing.CanHear(target.gameObject))
             enemyMode = EnemyMode.Chase;
         else if (hearing.CanHear(target.gameObject))
             enemyMode = EnemyMode.Rotate;

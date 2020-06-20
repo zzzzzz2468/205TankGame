@@ -28,9 +28,9 @@ public class Grid : MonoBehaviour
     {
         grid = new Node[gridSizeX, gridSizeY];
         Vector3 bottomLeft = transform.position - Vector3.right * gridWorldSize.x / 2 - Vector3.forward * gridWorldSize.y / 2;
-        for(int y = 0; y < gridSizeX; y++)
+        for(int x = 0; x < gridSizeX; x++)
         {
-            for (int x = 0; x < gridSizeX; x++)
+            for (int y = 0; y < gridSizeY; y++)
             {
                 Vector3 worldPoint = bottomLeft + Vector3.right * (x * nodeDiameter + nodeRadius) + Vector3.forward * (y * nodeDiameter + nodeRadius);
                 bool wall = true;
@@ -66,33 +66,45 @@ public class Grid : MonoBehaviour
         //RightSide
         xCheck = a_Node.gridX + 1;
         yCheck = a_Node.gridY;
-        if(yCheck >= 0 && xCheck < gridSizeY)
+        if (xCheck >= 0 && xCheck < gridSizeX)
         {
-            neighboringNodes.Add(grid[xCheck, yCheck]);
+            if (yCheck >= 0 && yCheck < gridSizeY)
+            {
+                neighboringNodes.Add(grid[xCheck, yCheck]);
+            }
         }
 
         //LeftSide
         xCheck = a_Node.gridX - 1;
         yCheck = a_Node.gridY;
-        if (yCheck >= 0 && xCheck < gridSizeY)
+        if (xCheck >= 0 && xCheck < gridSizeX)
         {
-            neighboringNodes.Add(grid[xCheck, yCheck]);
+            if (yCheck >= 0 && yCheck < gridSizeY)
+            {
+                neighboringNodes.Add(grid[xCheck, yCheck]);
+            }
         }
 
         //TopSide
         xCheck = a_Node.gridX;
         yCheck = a_Node.gridY + 1;
-        if (yCheck >= 0 && xCheck < gridSizeY)
+        if (xCheck >= 0 && xCheck < gridSizeX)
         {
-            neighboringNodes.Add(grid[xCheck, yCheck]);
+            if (yCheck >= 0 && yCheck < gridSizeY)
+            {
+                neighboringNodes.Add(grid[xCheck, yCheck]);
+            }
         }
 
         //BottomSide
         xCheck = a_Node.gridX;
         yCheck = a_Node.gridY - 1;
-        if (yCheck >= 0 && xCheck < gridSizeY)
+        if (xCheck >= 0 && xCheck < gridSizeX)
         {
-            neighboringNodes.Add(grid[xCheck, yCheck]);
+            if (yCheck >= 0 && yCheck < gridSizeY)
+            {
+                neighboringNodes.Add(grid[xCheck, yCheck]);
+            }
         }
 
         return neighboringNodes;
@@ -113,7 +125,10 @@ public class Grid : MonoBehaviour
 
 
                 if (finalPath != null)
-                    Gizmos.color = Color.red;
+                {
+                    if(finalPath.Contains(node))
+                        Gizmos.color = Color.red;
+                }
 
                 Gizmos.DrawCube(node.position, Vector3.one * (nodeDiameter - Distance));
             }

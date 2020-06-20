@@ -8,4 +8,9 @@ public class GameManager : Singleton<GameManager>
     public static GameManager gamemanager;
     public GameObject player;
     public GameObject bullet;
+
+    private void Awake()
+    {
+        gamemanager = this;
+    }
 }
