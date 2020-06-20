@@ -824,7 +824,10 @@ GameObject:
   - component: {fileID: 5897001259148798894}
   - component: {fileID: 5897001259148798881}
   - component: {fileID: 3033702569958280130}
-  - component: {fileID: 2316608268474296583}
+  - component: {fileID: 5732856279476247897}
+  - component: {fileID: 1155321887}
+  - component: {fileID: 1155321888}
+  - component: {fileID: 6065948210145576130}
   m_Layer: 8
   m_Name: Turret
   m_TagString: Enemy
@@ -930,7 +933,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   personality: 5
-  enemyMode: 3
+  enemyMode: 2
   loopType: 0
   waypoints:
   - {fileID: 0}
@@ -938,7 +941,7 @@ MonoBehaviour:
   - {fileID: 0}
   closeDistance: 3
   curWaypoint: 0
---- !u!114 &2316608268474296583
+--- !u!114 &5732856279476247897
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -947,9 +950,47 @@ MonoBehaviour:
   m_GameObject: {fileID: 3315545524643167070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0574ea921000fc84f8d99a92f1ad0851, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f5832e0cf6e3184892ebea2383aa035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1155321887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315545524643167070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225e0e97accf1c54bb68a6cb536f872e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldOfView: 60
+--- !u!114 &1155321888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315545524643167070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5832e0cf6e3184892ebea2383aa035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6065948210145576130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3315545524643167070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a37aeea008512f4fb27ab19034564c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hearingDistance: 10
 --- !u!1 &3563552296141703495
 GameObject:
   m_ObjectHideFlags: 0

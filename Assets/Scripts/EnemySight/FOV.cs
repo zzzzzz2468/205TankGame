@@ -4,6 +4,37 @@ using UnityEngine;
 
 public class FOV : MonoBehaviour
 {
+    public float fieldOfView = 60.0f;
+
+    public bool CanSee(GameObject target)
+    {
+        Transform targetTransform = target.transform;
+        Vector3 targetPosition = targetTransform.position;
+        Vector3 vectorToTarget = targetPosition - transform.position;
+
+        float angleToTarget = Vector3.Angle(vectorToTarget, transform.forward);
+
+        if ((angleToTarget <= fieldOfView))
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, vectorToTarget, out hit, Mathf.Infinity))
+            {
+                if (hit.collider.gameObject == target)
+                {
+                    Debug.DrawRay(transform.position, vectorToTarget, Color.green);
+                    return true;
+                }
+                else
+                {
+                    Debug.DrawRay(transform.position, vectorToTarget, Color.red);
+                }
+            }
+        }
+        return false;
+
+    }
+
+    /*
     //sets the radius of how far it can see and the angle that he can see at
     public float viewRadius;
     [Range(0, 360)]
@@ -57,7 +88,7 @@ public class FOV : MonoBehaviour
             if (Vector3.Angle(transform.right, dirToTarget) < viewAngle / 2)
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
-                if (!Physics2D.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
+                if (!Physics.Raycast(transform.position, dirToTarget, dstToTarget, obstacleMask))
                 {
                     visibleTargets.Add(target);
                     GetComponent<EnemyPersonality>().canSee(true);
@@ -75,5 +106,5 @@ public class FOV : MonoBehaviour
             angleInDegrees += transform.eulerAngles.z;
         }
         return new Vector3(-Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad));
-    }
+    }*/
 }

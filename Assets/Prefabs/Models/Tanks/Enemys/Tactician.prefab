@@ -615,7 +615,7 @@ GameObject:
   - component: {fileID: 4188047983507924627}
   - component: {fileID: 4188047983507924636}
   - component: {fileID: 4742664788785628927}
-  - component: {fileID: 2038024134511362313}
+  - component: {fileID: 2171404292601227992}
   m_Layer: 8
   m_Name: Tactician
   m_TagString: Enemy
@@ -729,7 +729,7 @@ MonoBehaviour:
   - {fileID: 0}
   closeDistance: 3
   curWaypoint: 0
---- !u!114 &2038024134511362313
+--- !u!114 &2171404292601227992
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5029283850306614883}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0574ea921000fc84f8d99a92f1ad0851, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f5832e0cf6e3184892ebea2383aa035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &5984960228422982583

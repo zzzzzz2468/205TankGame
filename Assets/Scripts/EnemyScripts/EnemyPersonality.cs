@@ -16,9 +16,6 @@ public class EnemyPersonality : MonoBehaviour
     [Header("Target")]
     public Transform target;
 
-    private bool seePlayer;
-    private bool hearPlayer;
-
     public enum Personality
     {
         ScardyClause,
@@ -69,7 +66,6 @@ public class EnemyPersonality : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(seePlayer);
         EnemyModeStateMachine();
     }
 
@@ -141,36 +137,6 @@ public class EnemyPersonality : MonoBehaviour
         }
     }
 
-    public bool canSee(bool see)
-    {
-        if (see)
-        {
-            enemyMode = EnemyMode.Attack;
-            seePlayer = true;
-        }
-        else if (!see)
-        {
-            enemyMode = EnemyMode.Idle;
-            seePlayer = false;
-        }
-        return see;
-    }
-
-    public bool canHear(bool hear)
-    {
-        if (hear)
-        {
-            enemyMode = EnemyMode.Search;
-            hearPlayer = true;
-        }
-        else if (!hear)
-        {
-            enemyMode = EnemyMode.Idle;
-            hearPlayer = false;
-        }
-        return hear;
-    }
-
     //EnemyPersonalities
     private void ScardyClause()
     {
@@ -200,8 +166,6 @@ public class EnemyPersonality : MonoBehaviour
     private void Turret()
     {
         //Stays still and fires
-        if (!seePlayer)
-            return;
         enemyMode = EnemyMode.Attack;
     }
 

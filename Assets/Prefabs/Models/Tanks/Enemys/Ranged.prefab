@@ -824,7 +824,7 @@ GameObject:
   - component: {fileID: 6209514099622911318}
   - component: {fileID: 6209514099622911321}
   - component: {fileID: 3306516377163562298}
-  - component: {fileID: 7559824973219686678}
+  - component: {fileID: 773832900179188697}
   m_Layer: 8
   m_Name: Ranged
   m_TagString: Enemy
@@ -938,7 +938,7 @@ MonoBehaviour:
   - {fileID: 0}
   closeDistance: 3
   curWaypoint: 0
---- !u!114 &7559824973219686678
+--- !u!114 &773832900179188697
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -947,7 +947,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3024682119791644070}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0574ea921000fc84f8d99a92f1ad0851, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f5832e0cf6e3184892ebea2383aa035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3737182164355884795

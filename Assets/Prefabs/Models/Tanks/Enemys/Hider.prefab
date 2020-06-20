@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 7122183922520358388}
   - component: {fileID: 7122183922520358395}
   - component: {fileID: 1808388241150647704}
-  - component: {fileID: 7306530821035423720}
+  - component: {fileID: 6830432788568110380}
   m_Layer: 8
   m_Name: Hider
   m_TagString: Enemy
@@ -558,7 +558,7 @@ MonoBehaviour:
   - {fileID: 0}
   closeDistance: 3
   curWaypoint: 0
---- !u!114 &7306530821035423720
+--- !u!114 &6830432788568110380
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2090339807094336772}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0574ea921000fc84f8d99a92f1ad0851, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f5832e0cf6e3184892ebea2383aa035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2789934860794577627
