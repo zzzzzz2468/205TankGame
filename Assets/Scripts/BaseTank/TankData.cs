@@ -27,6 +27,9 @@ public class TankData : MonoBehaviour
     public GameObject ShellHolder;
     public GameObject endOfBarrel;
 
+    [Header("Aggressive AI")]
+    public float AggCloseDistance = 10.0f;
+
     private TankData _tankData;
 
     //Sends data to other scripts

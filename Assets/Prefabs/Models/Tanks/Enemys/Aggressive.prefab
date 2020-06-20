@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 8583431620424483386}
   - component: {fileID: 923733357724181081}
   - component: {fileID: 6864274339039112516}
+  - component: {fileID: 1192727796804977950}
+  - component: {fileID: 1770744231745126491}
   m_Layer: 8
   m_Name: Aggressive
   m_TagString: Enemy
@@ -138,6 +140,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f5832e0cf6e3184892ebea2383aa035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1192727796804977950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633615448333898437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 569a649f64aa0244b81dd80bc6e4a38a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1770744231745126491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633615448333898437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 083193f63315d9546951cd7bc8b158f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1364585020451715480

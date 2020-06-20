@@ -40,7 +40,6 @@ public class EnemyPersonality : MonoBehaviour
         Wait,
         Attack,
         Sneak,
-        Charge,
         Search,
         Rotate
     }
@@ -70,9 +69,8 @@ public class EnemyPersonality : MonoBehaviour
 
     void Update()
     {
-        Debug.Log("See = " + fov.CanSee(target.gameObject));
-        Debug.Log("Hear = " + hearing.CanHear(target.gameObject));
-
+        Debug.Log(this + " See = " + fov.CanSee(target.gameObject));
+        Debug.Log(this + " Hear = " + hearing.CanHear(target.gameObject));
 
         EnemyPersonalityStateMachine();
     }
@@ -131,13 +129,11 @@ public class EnemyPersonality : MonoBehaviour
                 Wait();
                 break;
             case EnemyMode.Attack:
+                motor.RotateTowards(target.position, data.rotateSpeed);
                 shoot.ShootBullet();
                 break;
             case EnemyMode.Sneak:
                 Sneak();
-                break;
-            case EnemyMode.Charge:
-                Charge();
                 break;
             case EnemyMode.Rotate:
                 motor.RotateTowards(target.position, data.rotateSpeed);
@@ -157,6 +153,17 @@ public class EnemyPersonality : MonoBehaviour
     private void Aggresive()
     {
         //More close range
+        float distance = Vector3.Distance(target.transform.position, transform.position);
+        Debug.Log(distance);
+        if (distance <= data.AggCloseDistance)
+            enemyMode = EnemyMode.Attack;
+        else if (fov.CanSee(target.gameObject) && hearing.CanHear(target.gameObject) && distance > data.AggCloseDistance)
+            enemyMode = EnemyMode.Chase;
+        else if (hearing.CanHear(target.gameObject))
+            enemyMode = EnemyMode.Rotate;
+        else if (!hearing.CanHear(target.gameObject))
+            enemyMode = EnemyMode.Patrol;
+        EnemyModeStateMachine();
     }
 
     private void Ranged()
@@ -228,11 +235,6 @@ public class EnemyPersonality : MonoBehaviour
     }
 
     private void Sneak()
-    {
-
-    }
-
-    private void Charge()
     {
 
     }
