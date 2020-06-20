@@ -57,6 +57,7 @@ public class EnemyPersonality : MonoBehaviour
     //Other variables
     private bool isPatrolForward = true;
 
+    //gets scripts
     void Start()
     {
         data = GetComponent<TankData>();
@@ -67,6 +68,7 @@ public class EnemyPersonality : MonoBehaviour
         hearing = GetComponent<Hearing>();
     }
 
+    //calls state machine and checks data
     void Update()
     {
         Debug.Log(this + " See = " + fov.CanSee(target.gameObject));
@@ -75,6 +77,7 @@ public class EnemyPersonality : MonoBehaviour
         EnemyPersonalityStateMachine();
     }
 
+    //personality state machine
     void EnemyPersonalityStateMachine()
     {
         switch (personality)
@@ -103,6 +106,7 @@ public class EnemyPersonality : MonoBehaviour
         }
     }
 
+    //different actions state machine
     void EnemyModeStateMachine()
     {
         switch (enemyMode)
@@ -200,12 +204,14 @@ public class EnemyPersonality : MonoBehaviour
 
 
     //EnemyModes
+    //chasing mode
     private void Chasing()
     {
         motor.RotateTowards(target.position, data.rotateSpeed);
         motor.Move(data.moveSpeedForward);
     }
 
+    //fleeing mode
     private void Fleeing()
     {
         Vector3 vectorToTarget = target.position - tf.position;
@@ -217,6 +223,7 @@ public class EnemyPersonality : MonoBehaviour
         motor.Move(data.moveSpeedForward);
     }
 
+    //idle mode
     private void Idle()
     {
         if (personality == Personality.Turret)
@@ -224,26 +231,31 @@ public class EnemyPersonality : MonoBehaviour
         enemyMode = EnemyMode.Patrol;
     }
 
+    //search
     private void Search()
     {
 
     }
 
+    //hide
     private void Hide()
     {
 
     }
 
+    //wait
     private void Wait()
     {
 
     }
 
+    //sneak
     private void Sneak()
     {
 
     }
 
+    //patrol
     private void Patrol()
     {
         motor.RotateTowards(waypoints[curWaypoint].position, data.rotateSpeed);
@@ -254,6 +266,7 @@ public class EnemyPersonality : MonoBehaviour
         LoopTypeStateMachine();
     }
 
+    //loop state machine
     void LoopTypeStateMachine()
     {
         switch (loopType)

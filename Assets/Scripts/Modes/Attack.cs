@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Attack
 {
+    //stats for attacking
     private float _damage;
     public float Damage
     {

@@ -47,7 +47,7 @@ public class Bullet : MonoBehaviour
         tankData = data;
     }
 
-    //detects if collides with player, enemy or anything else, and does damage if needed then dies
+    //detects if collides with an object with health
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<IAttackable>() != null)
