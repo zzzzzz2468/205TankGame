@@ -8,6 +8,9 @@ public class Bullet : MonoBehaviour
     private TankData tankData;
     private Rigidbody _rigidBody;
 
+    public Attack attack;
+    public GameObject attacker;
+
     //finds rigidbody
     public Rigidbody RigidBody
     {
@@ -47,6 +50,16 @@ public class Bullet : MonoBehaviour
     //detects if collides with player, enemy or anything else, and does damage if needed then dies
     private void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.GetComponent<IAttackable>() != null)
+        {
+            IAttackable[] attackables = collision.gameObject.GetComponentsInChildren<IAttackable>();
+
+            foreach(IAttackable attackable in attackables)
+            {
+                attackable.OnAttack(attacker, attack);
+            }
+        }
+        /*
         if (collision.gameObject.layer == 8 || collision.gameObject.layer == 9)
         {
             collision.gameObject.GetComponent<Health>().UpdateHealth(tankData.damageDone);
@@ -57,6 +70,6 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
             Debug.Log("Collision");
-        }
+        }*/
     }
 }

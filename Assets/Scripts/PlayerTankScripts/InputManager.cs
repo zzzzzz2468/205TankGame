@@ -5,7 +5,7 @@ using UnityEngine;
 //required scripts
 [RequireComponent(typeof(TankData))]
 [RequireComponent(typeof(TankMotor))]
-[RequireComponent(typeof(Attack))]
+[RequireComponent(typeof(Shoot))]
 public class InputManager : MonoBehaviour
 {
     //state machine for move schemes
@@ -15,14 +15,14 @@ public class InputManager : MonoBehaviour
     //Declares the needed scripts
     private TankMotor motor;
     private TankData data;
-    private Attack attack;
+    private Shoot shoot;
 
     //finds the needed scripts
     void Start()
     {
         motor = GetComponent<TankMotor>();
         data = GetComponent<TankData>();
-        attack = GetComponent<Attack>();
+        shoot = GetComponent<Shoot>();
     }
 
     //Calls the inputs
@@ -53,7 +53,7 @@ public class InputManager : MonoBehaviour
                     motor.Rotate(0);
 
                 if (Input.GetKeyDown(KeyCode.Space))
-                    attack.Shoot();
+                    shoot.ShootBullet();
 
                 break;
 
@@ -74,7 +74,7 @@ public class InputManager : MonoBehaviour
                     motor.Rotate(0);
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
-                    attack.Shoot();
+                    shoot.ShootBullet();
 
                 break;
 

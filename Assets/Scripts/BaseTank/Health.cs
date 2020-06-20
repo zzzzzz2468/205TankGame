@@ -4,7 +4,7 @@ using UnityEngine;
 
 //Required scripts
 [RequireComponent(typeof(TankData))]
-public class Health : MonoBehaviour
+public class Health : MonoBehaviour, IHealth
 {
     //declares variable
     private TankData data;
@@ -34,5 +34,10 @@ public class Health : MonoBehaviour
     public void UpdateHealth(float newHealth)
     {
         health -= newHealth;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
     }
 }

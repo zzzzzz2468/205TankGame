@@ -4,14 +4,14 @@ using UnityEngine;
 
 [RequireComponent(typeof(TankData))]
 [RequireComponent(typeof(TankMotor))]
-[RequireComponent(typeof(Attack))]
+[RequireComponent(typeof(Shoot))]
 [RequireComponent(typeof(FOV))]
 public class EnemyPersonality : MonoBehaviour
 {
     private TankData data;
     private TankMotor motor;
     private Transform tf;
-    private Attack attack;
+    private Shoot shoot;
 
     [Header("Target")]
     public Transform target;
@@ -62,7 +62,7 @@ public class EnemyPersonality : MonoBehaviour
         data = GetComponent<TankData>();
         motor = GetComponent<TankMotor>();
         tf = GetComponent<Transform>();
-        attack = GetComponent<Attack>();
+        shoot = GetComponent<Shoot>();
 
         EnemyPersonalityStateMachine();
     }
@@ -127,7 +127,7 @@ public class EnemyPersonality : MonoBehaviour
                 Wait();
                 break;
             case EnemyMode.Attack:
-                attack.Shoot();
+                shoot.ShootBullet();
                 break;
             case EnemyMode.Sneak:
                 Sneak();
