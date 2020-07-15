@@ -517,6 +517,7 @@ GameObject:
   - component: {fileID: 6928642268495286724}
   - component: {fileID: 3558779512178234960}
   - component: {fileID: 728546232}
+  - component: {fileID: 5333593952775637356}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -592,10 +593,12 @@ MonoBehaviour:
   fireRate: 3
   shellLifeSpan: 5
   maxHealth: 200
+  curHealth: 0
   score: 0
   Shell: {fileID: 188082976519747032, guid: 1852612b27c78204d882e7e5cd99fadd, type: 3}
   ShellHolder: {fileID: 0}
   endOfBarrel: {fileID: 5557219800724622077}
+  AggCloseDistance: 10
 --- !u!114 &4819542511027485444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -646,6 +649,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   closeEnough: 0.1
+--- !u!114 &5333593952775637356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6365705624027258808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4706a9c16455af544a41d20f154652af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerups: []
 --- !u!1 &6365705624083629813
 GameObject:
   m_ObjectHideFlags: 0

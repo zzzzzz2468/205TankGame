@@ -829,6 +829,7 @@ GameObject:
   - component: {fileID: 5246245904551064967}
   - component: {fileID: 3136486424424357308}
   - component: {fileID: 2702410660466259730}
+  - component: {fileID: 2448097703576500792}
   m_Layer: 8
   m_Name: Ranged
   m_TagString: Enemy
@@ -874,10 +875,12 @@ MonoBehaviour:
   fireRate: 3
   shellLifeSpan: 5
   maxHealth: 100
+  curHealth: 0
   score: 0
   Shell: {fileID: 188082976519747032, guid: 1852612b27c78204d882e7e5cd99fadd, type: 3}
   ShellHolder: {fileID: 0}
   endOfBarrel: {fileID: 1038198358074717019}
+  AggCloseDistance: 10
 --- !u!114 &6209514100259813994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1004,6 +1007,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hearingDistance: 0
+--- !u!114 &2448097703576500792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3024682119791644070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4706a9c16455af544a41d20f154652af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerups: []
 --- !u!1 &3737182164355884795
 GameObject:
   m_ObjectHideFlags: 0

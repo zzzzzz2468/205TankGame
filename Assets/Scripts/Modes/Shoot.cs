@@ -11,7 +11,7 @@ public class Shoot : MonoBehaviour
     //finds scripts
     private void Start()
     {
-        data = gameObject.GetComponent<TankData>();
+        data = GetComponent<TankData>();
     }
 
     //updates time

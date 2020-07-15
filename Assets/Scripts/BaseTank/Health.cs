@@ -13,7 +13,7 @@ public class Health : MonoBehaviour, IHealth
     //finds and sets data
     private void Start()
     {
-        data = gameObject.GetComponent<TankData>();
+        data = GetComponent<TankData>();
         health = data.maxHealth;
     }
 

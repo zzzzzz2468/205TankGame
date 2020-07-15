@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6864274339039112516}
   - component: {fileID: 1192727796804977950}
   - component: {fileID: 1770744231745126491}
+  - component: {fileID: -7588510892394038694}
   m_Layer: 8
   m_Name: Aggressive
   m_TagString: Enemy
@@ -62,10 +63,12 @@ MonoBehaviour:
   fireRate: 3
   shellLifeSpan: 5
   maxHealth: 100
+  curHealth: 0
   score: 0
   Shell: {fileID: 188082976519747032, guid: 1852612b27c78204d882e7e5cd99fadd, type: 3}
   ShellHolder: {fileID: 0}
   endOfBarrel: {fileID: 3412235791292935224}
+  AggCloseDistance: 10
 --- !u!114 &8583431620056294665
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -166,6 +169,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083193f63315d9546951cd7bc8b158f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7588510892394038694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633615448333898437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4706a9c16455af544a41d20f154652af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerups: []
 --- !u!1 &1364585020451715480
 GameObject:
   m_ObjectHideFlags: 0

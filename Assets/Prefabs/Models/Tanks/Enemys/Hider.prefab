@@ -449,6 +449,7 @@ GameObject:
   - component: {fileID: 4406116689920865769}
   - component: {fileID: 4927614818620561195}
   - component: {fileID: 4674201169856467392}
+  - component: {fileID: 2337545660135024952}
   m_Layer: 8
   m_Name: Hider
   m_TagString: Enemy
@@ -494,10 +495,12 @@ MonoBehaviour:
   fireRate: 3
   shellLifeSpan: 5
   maxHealth: 100
+  curHealth: 0
   score: 0
   Shell: {fileID: 188082976519747032, guid: 1852612b27c78204d882e7e5cd99fadd, type: 3}
   ShellHolder: {fileID: 0}
   endOfBarrel: {fileID: 4220962748230571001}
+  AggCloseDistance: 10
 --- !u!114 &7122183922084780744
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -624,6 +627,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 083193f63315d9546951cd7bc8b158f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2337545660135024952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090339807094336772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4706a9c16455af544a41d20f154652af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerups: []
 --- !u!1 &2789934860794577627
 GameObject:
   m_ObjectHideFlags: 0

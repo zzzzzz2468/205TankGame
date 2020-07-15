@@ -18,6 +18,7 @@ public class TankData : MonoBehaviour
 
     [Header("Health")]
     public float maxHealth = 200.0f;
+    public float curHealth;
 
     [Header("Score")]
     public int score = 0;

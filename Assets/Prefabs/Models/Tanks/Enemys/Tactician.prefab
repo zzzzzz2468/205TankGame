@@ -616,6 +616,7 @@ GameObject:
   - component: {fileID: 4188047983507924636}
   - component: {fileID: 4742664788785628927}
   - component: {fileID: 2171404292601227992}
+  - component: {fileID: 5179533762685094376}
   m_Layer: 8
   m_Name: Tactician
   m_TagString: Enemy
@@ -661,10 +662,12 @@ MonoBehaviour:
   fireRate: 3
   shellLifeSpan: 5
   maxHealth: 100
+  curHealth: 0
   score: 0
   Shell: {fileID: 188082976519747032, guid: 1852612b27c78204d882e7e5cd99fadd, type: 3}
   ShellHolder: {fileID: 0}
   endOfBarrel: {fileID: 7087017339600079006}
+  AggCloseDistance: 10
 --- !u!114 &4188047983071822255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -741,6 +744,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5832e0cf6e3184892ebea2383aa035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5179533762685094376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5029283850306614883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4706a9c16455af544a41d20f154652af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerups: []
 --- !u!1 &5984960228422982583
 GameObject:
   m_ObjectHideFlags: 0
