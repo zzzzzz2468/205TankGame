@@ -39,9 +39,8 @@ public class PickupSpawner : MonoBehaviour
     {
         if(randomSpawn)
             pickupPre = pickupPrefs[Random.Range(0, pickupPrefs.Count)];
-        else
 
-        curPickup = Instantiate(pickupPre, tf.position, Quaternion.identity);
+        curPickup = Instantiate(pickupPre, tf.position, Quaternion.identity, this.transform);
         nextSpawn = Time.time + spawnDel;
     }
 }
