@@ -9,8 +9,16 @@ public class GameManager : Singleton<GameManager>
     public GameObject player;
     public GameObject bullet;
 
-    private void Awake()
+    public List<PlayerSpawn> playerSpawnPoints;
+
+    protected override void Awake()
     {
-        gamemanager = this;
+        base.Awake();
+        playerSpawnPoints = new List<PlayerSpawn>();
+    }
+
+    public void SpawnPlayer()
+    {
+
     }
 }

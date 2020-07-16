@@ -1,13 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class MapGenerator : MonoBehaviour
 {
+    [Header("Tile Prefabs")]
     public GameObject[] gridPrefs;
 
+    [Header("Grid Size")]
     public int rows;
     public int columns;
+
+    public enum MapType
+    {
+        Seeded,
+        Random,
+        MapDay
+    }
+
+    [Header("Seed")]
+    public MapType mapType = MapType.Random;
+    public int mapSeed;
 
     private float roomWidth = 50.0f;
     private float roomHeight = 50.0f;
@@ -16,11 +30,19 @@ public class MapGenerator : MonoBehaviour
 
     public GameObject RandomRoomPref()
     {
-        return gridPrefs[Random.Range(0, gridPrefs.Length)];
+        return gridPrefs[UnityEngine.Random.Range(0, gridPrefs.Length)];
+    }
+
+    public int DateToInt(DateTime dateUse)
+    {
+        return dateUse.Year + dateUse.Month + dateUse.Day + 
+            dateUse.Hour + dateUse.Minute + dateUse.Second + 
+            dateUse.Millisecond;
     }
 
     public void GenerateGrid()
     {
+        UnityEngine.Random.InitState(mapSeed);
         genGrid = new Room[columns, rows];
 
         for (int curRow = 0; curRow < rows; curRow++)
@@ -78,8 +100,33 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
+        StartGame();
+    }
+
+    public void StartGame()
+    {
+        switch(mapType)
+        {
+            case MapType.Seeded:
+                break;
+            case MapType.Random:
+                mapSeed = DateToInt(DateTime.Now);
+                break;
+            case MapType.MapDay:
+                mapSeed = DateToInt(DateTime.Now.Date);
+                break;
+            default:
+                Debug.LogWarning("No Seed Type: MAPGENERATOR");
+                break;
+        }
         GenerateGrid();
+        GameManager.Instance.SpawnPlayer();
+    }
+
+    private void Update()
+    {
+        
     }
 }
