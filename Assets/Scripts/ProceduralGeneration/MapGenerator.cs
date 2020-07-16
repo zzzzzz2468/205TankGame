@@ -59,44 +59,43 @@ public class MapGenerator : MonoBehaviour
 
                 Room temp = tempRoom.GetComponent<Room>();
 
-                if (rows == 1)
-                {
-
-                }
-                else if (curRow == 0)
-                {
-                    temp.doorNorth.SetActive(false);
-                }
-                else if (curRow == rows - 1)
-                {
-                    temp.doorSouth.SetActive(false);
-                }
-                else
-                {
-                    temp.doorNorth.SetActive(false);
-                    temp.doorSouth.SetActive(false);
-                }
-
-                if (columns == 1)
-                {
-
-                }
-                else if (curCol == 0)
-                {
-                    temp.doorEast.SetActive(false);
-                }
-                else if (curCol == rows - 1)
-                {
-                    temp.doorWest.SetActive(false);
-                }
-                else
-                {
-                    temp.doorWest.SetActive(false);
-                    temp.doorEast.SetActive(false);
-                }
+                RowDeactivate(curRow, temp);
+                ColDeactivate(curCol, temp);
 
                 genGrid[curCol, curRow] = temp;
             }
+        }
+    }
+
+    void RowDeactivate(int curRow, Room temp)
+    {
+        if (rows == 1)
+            return;
+
+        if (curRow == 0)
+            temp.doorNorth.SetActive(false);
+        else if (curRow == rows - 1)
+            temp.doorSouth.SetActive(false);
+        else
+        {
+            temp.doorNorth.SetActive(false);
+            temp.doorSouth.SetActive(false);
+        }
+    }
+
+    private void ColDeactivate(int curCol, Room temp)
+    {
+        if (columns == 1)
+            return;
+
+        if (curCol == 0)
+            temp.doorEast.SetActive(false);
+        else if (curCol == rows - 1)
+            temp.doorWest.SetActive(false);
+        else
+        {
+            temp.doorWest.SetActive(false);
+            temp.doorEast.SetActive(false);
         }
     }
 
@@ -123,10 +122,5 @@ public class MapGenerator : MonoBehaviour
         }
         GenerateGrid();
         GameManager.Instance.SpawnPlayer();
-    }
-
-    private void Update()
-    {
-        
     }
 }
