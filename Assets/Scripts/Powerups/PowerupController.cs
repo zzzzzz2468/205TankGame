@@ -11,7 +11,7 @@ public class PowerupController : MonoBehaviour
 
     void Start()
     {
-        data.GetComponent<TankData>();
+        data = GetComponent<TankData>();
     }
 
     void Update()

@@ -7,20 +7,12 @@ public class Pickup : MonoBehaviour
     public Powerups powerup;
     public AudioClip feedbackAudio;
 
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-
     //detects collision and checks if it has a powerupcontroller
     public void OnTriggerEnter(Collider other)
     {
         PowerupController powerupController = other.GetComponent<PowerupController>();
+
+        Debug.Log(powerupController);
 
         if(powerupController != null)
         {
@@ -29,7 +21,7 @@ public class Pickup : MonoBehaviour
             if (feedbackAudio != null)
                 AudioSource.PlayClipAtPoint(feedbackAudio, transform.position, 1.0f);
 
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }
