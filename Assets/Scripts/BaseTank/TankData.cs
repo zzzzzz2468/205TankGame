@@ -15,6 +15,8 @@ public class TankData : MonoBehaviour
     public float damageDone = 25.0f;
     public float fireRate = 3.0f;
     public float shellLifeSpan = 5.0f;
+    public int ammo = 5;
+    public int maxAmmo = 5;
 
     [Header("Health")]
     public float maxHealth = 200.0f;

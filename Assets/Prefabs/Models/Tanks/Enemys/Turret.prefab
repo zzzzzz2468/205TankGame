@@ -836,7 +836,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1754282684133869901
 Transform:
   m_ObjectHideFlags: 0
@@ -874,11 +874,15 @@ MonoBehaviour:
   damageDone: 25
   fireRate: 1.5
   shellLifeSpan: 5
+  ammo: 5
+  maxAmmo: 5
   maxHealth: 100
+  curHealth: 0
   score: 0
   Shell: {fileID: 188082976519747032, guid: 1852612b27c78204d882e7e5cd99fadd, type: 3}
   ShellHolder: {fileID: 0}
   endOfBarrel: {fileID: 689772768584664483}
+  AggCloseDistance: 10
 --- !u!114 &5897001259517742226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,7 +971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 225e0e97accf1c54bb68a6cb536f872e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fieldOfView: 0
+  fieldOfView: 5
 --- !u!114 &1155321888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -992,7 +996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a37aeea008512f4fb27ab19034564c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hearingDistance: 10
+  hearingDistance: 30
 --- !u!114 &1155321890
 MonoBehaviour:
   m_ObjectHideFlags: 0

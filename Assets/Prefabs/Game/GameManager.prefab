@@ -43,6 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 877460b3eb46fbc4b84ab78890224469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: -927199367670048503, guid: e897c91fd9cbbbc46947fe68cd63b851, type: 3}
-  bullet: {fileID: 0}
+  playerPref: {fileID: 6365705624027258808, guid: 739ce804dd34c1f449bcc42510d14d01,
+    type: 3}
+  shellHolderPref: {fileID: 8725595267443928873, guid: 9a3979953e43ed24788df0c7d4cdf243,
+    type: 3}
+  cameraPref: {fileID: 5943872828036073072, guid: 11bdd0848ced9db499bfb73314858a95,
+    type: 3}
+  cameraHeight: 7
+  cameraDistance: 7
   playerSpawnPoints: []

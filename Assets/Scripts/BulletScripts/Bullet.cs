@@ -60,5 +60,6 @@ public class Bullet : MonoBehaviour
                 attackable.OnAttack(attacker, attack);
             }
         }
+        Destroy(this.gameObject);
     }
 }

@@ -23,7 +23,7 @@ public class Shoot : MonoBehaviour
     //creates the shell, called from input script
     public void ShootBullet()
     {
-        if (lastShot >= data.fireRate)
+        if (lastShot >= data.fireRate && data.ammo > 0)
         {
             var shot = Instantiate(data.Shell, data.endOfBarrel.transform.position, transform.rotation, data.ShellHolder.transform);
             lastShot = 0;
@@ -32,6 +32,8 @@ public class Shoot : MonoBehaviour
             shot.GetComponent<Bullet>().attack = new Attack(data.damageDone);
 
             shot.GetComponent<Bullet>().Initilization(data);
+
+            data.ammo--;
         }
     }
 }

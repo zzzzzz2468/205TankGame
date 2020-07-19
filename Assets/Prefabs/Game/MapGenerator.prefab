@@ -48,5 +48,5 @@ MonoBehaviour:
   - {fileID: 757128705928729853, guid: 8f722a62f28175042b7a8c63531cbfa4, type: 3}
   rows: 5
   columns: 5
-  mapType: 0
+  mapType: 1
   mapSeed: 3

@@ -1294,13 +1294,14 @@ GameObject:
   - component: {fileID: 2411222925391080110}
   - component: {fileID: 7981314618601472102}
   - component: {fileID: -6673124705996143282}
+  - component: {fileID: 16819498}
   m_Layer: 9
   m_Name: Player2
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1803303108483507417
 Transform:
   m_ObjectHideFlags: 0
@@ -1368,6 +1369,8 @@ MonoBehaviour:
   damageDone: 25
   fireRate: 3
   shellLifeSpan: 5
+  ammo: 5
+  maxAmmo: 5
   maxHealth: 200
   curHealth: 0
   score: 0
@@ -1425,6 +1428,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerups: []
+--- !u!114 &16819498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1803303108483507410}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f5832e0cf6e3184892ebea2383aa035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1803303108534516379
 GameObject:
   m_ObjectHideFlags: 0

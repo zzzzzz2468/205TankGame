@@ -18,13 +18,15 @@ GameObject:
   - component: {fileID: 1192727796804977950}
   - component: {fileID: 1770744231745126491}
   - component: {fileID: -7588510892394038694}
+  - component: {fileID: 1797890983}
+  - component: {fileID: 1797890984}
   m_Layer: 8
   m_Name: Aggressive
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4508195844841971926
 Transform:
   m_ObjectHideFlags: 0
@@ -62,6 +64,8 @@ MonoBehaviour:
   damageDone: 25
   fireRate: 3
   shellLifeSpan: 5
+  ammo: 5
+  maxAmmo: 5
   maxHealth: 100
   curHealth: 0
   score: 0
@@ -125,7 +129,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   personality: 1
-  enemyMode: 3
+  enemyMode: 2
   loopType: 0
   waypoints:
   - {fileID: 0}
@@ -182,6 +186,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerups: []
+--- !u!114 &1797890983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633615448333898437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a37aeea008512f4fb27ab19034564c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hearingDistance: 30
+--- !u!114 &1797890984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 633615448333898437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 225e0e97accf1c54bb68a6cb536f872e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fieldOfView: 60
 --- !u!1 &1364585020451715480
 GameObject:
   m_ObjectHideFlags: 0

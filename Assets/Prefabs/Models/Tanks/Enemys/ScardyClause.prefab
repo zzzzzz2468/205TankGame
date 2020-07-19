@@ -1867,7 +1867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5300224015074158155
 Transform:
   m_ObjectHideFlags: 0
@@ -1905,6 +1905,8 @@ MonoBehaviour:
   damageDone: 25
   fireRate: 3
   shellLifeSpan: 5
+  ammo: 5
+  maxAmmo: 5
   maxHealth: 100
   curHealth: 0
   score: 0
@@ -1970,8 +1972,11 @@ MonoBehaviour:
   personality: 0
   enemyMode: 0
   loopType: 0
-  waypoints: []
-  closeDistance: 2
+  waypoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  closeDistance: 5
   curWaypoint: 0
 --- !u!114 &5490797387978952293
 MonoBehaviour:
@@ -2034,7 +2039,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a37aeea008512f4fb27ab19034564c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hearingDistance: 0
+  hearingDistance: 30
 --- !u!114 &-3920339092701986133
 MonoBehaviour:
   m_ObjectHideFlags: 0
