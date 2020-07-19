@@ -941,10 +941,7 @@ MonoBehaviour:
   personality: 5
   enemyMode: 2
   loopType: 0
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
   closeDistance: 3
   curWaypoint: 0
 --- !u!114 &5732856279476247897
