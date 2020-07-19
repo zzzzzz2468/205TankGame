@@ -14,6 +14,7 @@ public class Pickup : MonoBehaviour
 
         Debug.Log(powerupController);
 
+        //Adds powerup to list, plays sound and destroys powerup
         if(powerupController != null)
         {
             powerupController.AddPowerup(powerup);

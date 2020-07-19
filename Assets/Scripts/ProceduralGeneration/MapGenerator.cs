@@ -5,6 +5,8 @@ using System;
 
 public class MapGenerator : MonoBehaviour
 {
+    //Variables
+
     [Header("Tile Prefabs")]
     public GameObject[] gridPrefs;
 
@@ -28,11 +30,13 @@ public class MapGenerator : MonoBehaviour
 
     private Room[,] genGrid;
 
+    //Gets a random room
     public GameObject RandomRoomPref()
     {
         return gridPrefs[UnityEngine.Random.Range(0, gridPrefs.Length)];
     }
 
+    //gets the date back
     public int DateToInt(DateTime dateUse)
     {
         return dateUse.Year + dateUse.Month + dateUse.Day + 
@@ -40,6 +44,7 @@ public class MapGenerator : MonoBehaviour
             dateUse.Millisecond;
     }
 
+    //Generates the grid randomly
     public void GenerateGrid()
     {
         UnityEngine.Random.InitState(mapSeed);
@@ -67,6 +72,7 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    //deactivates doors on the row
     void RowDeactivate(int curRow, Room temp)
     {
         if (rows == 1)
@@ -83,6 +89,7 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    //Deactivates doors on the columns
     private void ColDeactivate(int curCol, Room temp)
     {
         if (columns == 1)
@@ -99,11 +106,13 @@ public class MapGenerator : MonoBehaviour
         }
     }
 
+    //Calls start game
     private void Start()
     {
         StartGame();
     }
 
+    //detects what type of map to spawn
     public void StartGame()
     {
         switch(mapType)

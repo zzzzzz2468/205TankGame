@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(TankData))]
 public class PowerupController : MonoBehaviour
 {
+    //variables/initialization
     private TankData data;
-
     public List<Powerups> powerups = new List<Powerups>();
 
     void Start()
@@ -14,6 +14,7 @@ public class PowerupController : MonoBehaviour
         data = GetComponent<TankData>();
     }
 
+    //expired powerups and duration
     void Update()
     {
         List<Powerups> expired = new List<Powerups>();

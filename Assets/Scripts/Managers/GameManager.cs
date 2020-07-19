@@ -15,12 +15,14 @@ public class GameManager : Singleton<GameManager>
 
     public List<PlayerSpawn> playerSpawnPoints;
 
+    //initializes list
     protected override void Awake()
     {
         base.Awake();
         playerSpawnPoints = new List<PlayerSpawn>();
     }
 
+    //Spawns the player, the camera and the shellholder at random location
     public void SpawnPlayer()
     {
         var spawn = playerSpawnPoints[Random.Range(0, playerSpawnPoints.Count)].transform.position;
