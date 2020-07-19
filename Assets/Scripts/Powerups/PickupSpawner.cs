@@ -20,6 +20,11 @@ public class PickupSpawner : MonoBehaviour
     private float nextSpawn;
     private Transform tf;
 
+    private void Awake()
+    {
+        GameManager.Instance.pickupSpawners.Add(this.gameObject.GetComponent<PickupSpawner>());
+    }
+
     void Start()
     {
         tf = GetComponent<Transform>();
