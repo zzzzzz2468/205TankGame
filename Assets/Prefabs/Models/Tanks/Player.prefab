@@ -587,15 +587,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 011534c0e4983f7479a410d05d76f23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeedForward: 5
-  moveSpeedBack: 2
-  rotateSpeed: 50
+  moveSpeedForward: 10
+  moveSpeedBack: 5
+  rotateSpeed: 60
   shellForce: 75
   damageDone: 25
   fireRate: 3
   shellLifeSpan: 5
   ammo: 5
   maxAmmo: 5
+  curFuel: 100
+  maxFuel: 100
+  fuelLoss: 0.1
   maxHealth: 200
   curHealth: 0
   score: 0

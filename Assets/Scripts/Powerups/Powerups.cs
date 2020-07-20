@@ -10,6 +10,8 @@ public class Powerups
     public float damagePermMod;
     public int ammoMod;
     public int maxAmmoPermMod;
+    public int fuelMod;
+    public int maxFuelMod;
 
     public float duration;
     public bool isPerm;
@@ -25,6 +27,8 @@ public class Powerups
         target.damageDone += damagePermMod;
         target.maxAmmo += maxAmmoPermMod;
         target.ammo += ammoMod;
+        target.curFuel += fuelMod;
+        target.maxFuel += maxFuelMod;
     }
 
     //Changing variables on deactive

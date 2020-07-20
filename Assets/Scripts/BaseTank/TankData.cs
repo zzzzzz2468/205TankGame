@@ -18,6 +18,11 @@ public class TankData : MonoBehaviour
     public int ammo = 5;
     public int maxAmmo = 5;
 
+    [Header("Fuel")]
+    public float curFuel = 100.0f;
+    public float maxFuel = 100.0f;
+    public float fuelLoss = 0.1f;
+
     [Header("Health")]
     public float maxHealth = 200.0f;
     public float curHealth;

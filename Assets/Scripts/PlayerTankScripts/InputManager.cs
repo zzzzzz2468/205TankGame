@@ -17,6 +17,8 @@ public class InputManager : MonoBehaviour
     private TankData data;
     private Shoot shoot;
 
+    private bool isMoving = false;
+
     //finds the needed scripts
     void Start()
     {
@@ -29,6 +31,12 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         HandleInputs();
+
+        if (isMoving)
+        {
+            data.curFuel -= data.fuelLoss;
+            isMoving = false;
+        }
     }
 
     //Controls the two movement schemes implemented
@@ -38,12 +46,21 @@ public class InputManager : MonoBehaviour
         {
             //Player1 Movement set
             case inputScheme.WASD:
-                if (Input.GetKey(KeyCode.W))
+                if (Input.GetKey(KeyCode.W) && data.curFuel >= 0)
+                {
                     motor.Move(data.moveSpeedForward);
-                else if (Input.GetKey(KeyCode.S))
+                    isMoving = true;
+                }
+                else if (Input.GetKey(KeyCode.S) && data.curFuel >= 0)
+                {
                     motor.Move(-data.moveSpeedBack);
+                    isMoving = true;
+                }
                 else
+                {
                     motor.Move(0);
+                    isMoving = false;
+                }
 
                 if (Input.GetKey(KeyCode.D))
                     motor.Rotate(data.rotateSpeed);
@@ -55,16 +72,28 @@ public class InputManager : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Space))
                     shoot.ShootBullet();
 
+                if (Input.GetKeyDown(KeyCode.F))
+                    Destroy(this.gameObject);
+
                 break;
 
             //Player2 movement set
             case inputScheme.arrowKeys:
-                if (Input.GetKey(KeyCode.UpArrow))
+                if (Input.GetKey(KeyCode.UpArrow) && data.curFuel >= 0)
+                {
                     motor.Move(data.moveSpeedForward);
-                else if (Input.GetKey(KeyCode.DownArrow))
+                    isMoving = true;
+                }
+                else if (Input.GetKey(KeyCode.DownArrow) && data.curFuel >= 0)
+                {
                     motor.Move(-data.moveSpeedBack);
+                    isMoving = true;
+                }
                 else
+                {
                     motor.Move(0);
+                    isMoving = false;
+                }
 
                 if (Input.GetKey(KeyCode.RightArrow))
                     motor.Rotate(data.rotateSpeed);
@@ -75,6 +104,9 @@ public class InputManager : MonoBehaviour
 
                 if (Input.GetKeyDown(KeyCode.Mouse0))
                     shoot.ShootBullet();
+
+                if (Input.GetKeyDown(KeyCode.End))
+                    Destroy(this.gameObject);
 
                 break;
 

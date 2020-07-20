@@ -47,6 +47,7 @@ MonoBehaviour:
   - {fileID: 3326928658920884377, guid: 73888cb634155b14c9a0e64ecc7818e4, type: 3}
   - {fileID: 4668394752104772672, guid: 8c78bec7712b4d94984b49192c9c3585, type: 3}
   - {fileID: 2355695712777005556, guid: 895241654e8c05442aa9cef6cb9d12fa, type: 3}
+  - {fileID: 1836527044125817462, guid: 9a09f0749215c5d4296f0bd8c491e2e9, type: 3}
   pickupPre: {fileID: 0}
   spawnDel: 30
   randomSpawn: 1

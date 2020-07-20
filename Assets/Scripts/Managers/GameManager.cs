@@ -10,6 +10,9 @@ public class GameManager : Singleton<GameManager>
     public GameObject shellHolderPref;
     public GameObject cameraPref;
 
+    private GameObject gamePlayer;
+    private GameObject gameShellHolder;
+
     public int numOfEnemies;
 
     public List<PlayerSpawn> playerSpawnPoints;
@@ -29,6 +32,12 @@ public class GameManager : Singleton<GameManager>
         enemySpawners = new List<EnemySpawn>();
     }
 
+    private void Update()
+    {
+        if(!gamePlayer.activeInHierarchy)
+            SpawnPlayer();
+    }
+
     //Spawns the player, the camera and the shellholder at random location
     public void SpawnPlayer()
     {
@@ -38,14 +47,18 @@ public class GameManager : Singleton<GameManager>
         var camera = Instantiate(cameraPref, spawn, Quaternion.identity);
         camera.GetComponent<CameraController>().target = player;
         player.GetComponent<TankData>().ShellHolder = shellHolder;
+
+        gamePlayer = player;
+        gameShellHolder = shellHolder;
     }
 
     public void SpawnEnemy()
     {
         var spawn = enemySpawners[Random.Range(0, enemySpawners.Count)].transform.position;
-        var enemy = enemyPrefs[Random.Range(0, enemyPrefs.Count)];
+        var enemyTemp = enemyPrefs[Random.Range(0, enemyPrefs.Count)];
 
-        Instantiate(enemy, spawn, Quaternion.identity);
-        enemy.GetComponent<EnemyPersonality>().target = GameObject.FindGameObjectWithTag("Player").transform;
+        var enemy = Instantiate(enemyTemp, spawn, Quaternion.identity);
+        enemy.GetComponent<EnemyPersonality>().target = gamePlayer.transform;
+        enemy.GetComponent<TankData>().ShellHolder = gameShellHolder;
     }
 }

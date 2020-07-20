@@ -12,14 +12,14 @@ public class TankMotor : MonoBehaviour
     //Finds scripts
     void Start()
     {
-        charCont = gameObject.GetComponent<CharacterController>();
-        tf = gameObject.GetComponent<Transform>();
+        charCont = GetComponent<CharacterController>();
+        tf = GetComponent<Transform>();
     }
 
     //Player Movement
-    public void Move(float Speed)
+    public void Move(float speed)
     {
-        Vector3 speedVector = tf.forward * Speed;
+        Vector3 speedVector = tf.forward * speed;
         charCont.SimpleMove(speedVector);
     }
 

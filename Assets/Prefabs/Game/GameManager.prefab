@@ -49,6 +49,15 @@ MonoBehaviour:
     type: 3}
   cameraPref: {fileID: 5943872828036073072, guid: 11bdd0848ced9db499bfb73314858a95,
     type: 3}
-  cameraHeight: 7
-  cameraDistance: 7
+  gamePlayer: {fileID: 0}
+  numOfEnemies: 10
   playerSpawnPoints: []
+  pickupSpawners: []
+  enemySpawners: []
+  enemyPrefs:
+  - {fileID: 633615448333898437, guid: f17aad790bbe7f04a9b7e2b696c0b464, type: 3}
+  - {fileID: 2090339807094336772, guid: 65da50bbfb299f04da92fc46131a0b93, type: 3}
+  - {fileID: 3024682119791644070, guid: f97d81378c3804d418ac04a8f11b8f59, type: 3}
+  - {fileID: 9211396637776909400, guid: aa7b81a0c6e60b54f8ab507ac05f5d1c, type: 3}
+  - {fileID: 5029283850306614883, guid: f0def15e1ba3eab4ab1e6b28aa9ef329, type: 3}
+  - {fileID: 3315545524643167070, guid: 60a18741b7b84aa419d18b6c51b52092, type: 3}

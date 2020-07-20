@@ -66,6 +66,9 @@ MonoBehaviour:
   shellLifeSpan: 5
   ammo: 5
   maxAmmo: 5
+  curFuel: 100
+  maxFuel: 100
+  fuelLoss: 0.1
   maxHealth: 100
   curHealth: 0
   score: 0
@@ -127,14 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca69e795e392e1749bcf471b2782580c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
+  target: {fileID: 6365705624027258803, guid: 739ce804dd34c1f449bcc42510d14d01, type: 3}
   personality: 1
   enemyMode: 2
   loopType: 0
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
   closeDistance: 3
   curWaypoint: 0
 --- !u!114 &6864274339039112516

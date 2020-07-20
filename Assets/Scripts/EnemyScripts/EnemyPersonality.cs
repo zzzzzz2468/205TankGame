@@ -71,9 +71,6 @@ public class EnemyPersonality : MonoBehaviour
     //calls state machine and checks data
     void Update()
     {
-        Debug.Log(this + " See = " + fov.CanSee(target.gameObject));
-        Debug.Log(this + " Hear = " + hearing.CanHear(target.gameObject));
-
         EnemyPersonalityStateMachine();
     }
 
@@ -124,7 +121,7 @@ public class EnemyPersonality : MonoBehaviour
                 Search();
                 break;
             case EnemyMode.Patrol:
-                Patrol();
+                //Patrol();
                 break;
             case EnemyMode.Hide:
                 Hide();

@@ -98,5 +98,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   damping: 1
-  cameraHeight: 1
-  cameraDistance: 1
+  vertOff: 5
+  backOff: 9
