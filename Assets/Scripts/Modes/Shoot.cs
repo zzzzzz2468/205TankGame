@@ -25,7 +25,7 @@ public class Shoot : MonoBehaviour
     {
         if (lastShot >= data.fireRate && data.ammo > 0)
         {
-            var shot = Instantiate(data.Shell, data.endOfBarrel.transform.position, transform.rotation, data.ShellHolder.transform);
+            var shot = Instantiate(data.Shell, data.endOfBarrel.transform.position, transform.rotation, GameManager.Instance.ShellHolder.transform);
             lastShot = 0;
 
             shot.GetComponent<Bullet>().attacker = gameObject;

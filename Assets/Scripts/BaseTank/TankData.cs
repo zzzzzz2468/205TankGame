@@ -32,14 +32,12 @@ public class TankData : MonoBehaviour
 
     [Header("Models")]
     public GameObject Shell;
-    public GameObject ShellHolder;
     public GameObject endOfBarrel;
 
     [Header("Aggressive AI")]
     public float AggCloseDistance = 10.0f;
 
     private TankData _tankData;
-
     //Sends data to other scripts
     public void Initilization(TankData data)
     {

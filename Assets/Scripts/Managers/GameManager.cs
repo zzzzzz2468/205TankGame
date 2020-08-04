@@ -15,50 +15,104 @@ public class GameManager : Singleton<GameManager>
 
     public int numOfEnemies;
 
-    public List<PlayerSpawn> playerSpawnPoints;
+    private Transform _shellHolder;
+    public Transform ShellHolder
+    {
+        get => _shellHolder != null ? _shellHolder : _shellHolder = new GameObject("ShellHolder").transform;
+    }
 
-    public List<PickupSpawner> pickupSpawners;
+    //References
+    private GameObject _playerOne;
+    private GameObject _playerTwo;
+    private GameObject _playerThree;
+    private GameObject _playerFour;
 
-    public List<EnemySpawn> enemySpawners;
+    public GameObject PlayerOne
+    {
+        get => _playerOne != null ? _playerOne : _playerOne = SpawnPlayer();
+    }
+    public GameObject PlayerTwo
+    {
+        get => _playerTwo != null ? _playerTwo : _playerTwo = SpawnPlayer();
+    }
+    public GameObject PlayerThree
+    {
+        get => _playerThree != null ? _playerThree : _playerThree = SpawnPlayer();
+    }
+    public GameObject PlayerFour
+    {
+        get => _playerFour != null ? _playerFour : _playerFour = SpawnPlayer();
+    }
 
+    //Lists for spawning players, enemies and pickups
+    public List<PlayerSpawn> playerSpawnPoints = new List<PlayerSpawn>();
+    public List<PickupSpawner> pickupSpawners = new List<PickupSpawner>();
+    public List<EnemySpawn> enemySpawners = new List<EnemySpawn>();
     public List<GameObject> enemyPrefs = new List<GameObject>();
 
-    //initializes list
+    //Score
+    public List<ScoreData> scores = new List<ScoreData>();
+    private const int MAXSCORESIZE = 3;
+
+    //TotalPlayers
+    public int totPlayers = 1;
+
+    //Sorts the scores
     protected override void Awake()
     {
         base.Awake();
-        playerSpawnPoints = new List<PlayerSpawn>();
-        pickupSpawners = new List<PickupSpawner>();
-        enemySpawners = new List<EnemySpawn>();
+        if(scores.Count >= 1)
+            CleanScores();
+    }
+
+    void CleanScores()
+    {
+        scores.Sort();
+        scores.Reverse();
+        scores = scores.GetRange(index: 0, count: MAXSCORESIZE);
+    }
+
+    private void Start()
+    {
+        PlayerOne.transform.position = new Vector3(0, 0, 0);
     }
 
     private void Update()
     {
-        if(!gamePlayer.activeInHierarchy)
-            SpawnPlayer();
+        EnemySpawn();
     }
 
-    //Spawns the player, the camera and the shellholder at random location
-    public void SpawnPlayer()
+    private void EnemySpawn()
     {
-        var spawn = playerSpawnPoints[Random.Range(0, playerSpawnPoints.Count)].transform.position;
+        for (int i = 0; i < numOfEnemies; i++)
+            SpawnEnemy();
+    }
+
+    private GameObject SpawnPlayer()
+    {
+        int playerSpawn = Random.Range(0, playerSpawnPoints.Count);
+        var spawn = playerSpawnPoints[playerSpawn].transform.position;
+        playerSpawnPoints.RemoveAt(playerSpawn);
+
         var player = Instantiate(playerPref, spawn, Quaternion.identity);
-        var shellHolder = Instantiate(shellHolderPref, Vector3.zero, Quaternion.identity);
         var camera = Instantiate(cameraPref, spawn, Quaternion.identity);
-        camera.GetComponent<CameraController>().target = player;
-        player.GetComponent<TankData>().ShellHolder = shellHolder;
 
-        gamePlayer = player;
-        gameShellHolder = shellHolder;
+        camera.GetComponent<CameraController>().target = player;
+
+        return player;
     }
 
-    public void SpawnEnemy()
+    public GameObject SpawnEnemy()
     {
-        var spawn = enemySpawners[Random.Range(0, enemySpawners.Count)].transform.position;
+        int enemySpawn = Random.Range(0, playerSpawnPoints.Count);
+        var spawn = enemySpawners[enemySpawn].transform.position;
+        enemySpawners.RemoveAt(enemySpawn);
+
         var enemyTemp = enemyPrefs[Random.Range(0, enemyPrefs.Count)];
 
         var enemy = Instantiate(enemyTemp, spawn, Quaternion.identity);
         enemy.GetComponent<EnemyPersonality>().target = gamePlayer.transform;
-        enemy.GetComponent<TankData>().ShellHolder = gameShellHolder;
+
+        return enemy;
     }
 }
