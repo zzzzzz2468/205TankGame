@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -62,9 +63,17 @@ public class GameManager : Singleton<GameManager>
         scores = scores.GetRange(index: 0, count: MAXSCORESIZE);
     }
 
-    private void Start()
+    public void TotalPlayers(int players)
     {
-        PlayerSpawn();
+        numOfPlayers = players;
+    }
+
+    private void Update()
+    {
+        if(playerSpawnPoints.Count != 0)
+            PlayerSpawn();
+        if(SceneManager.GetActiveScene().name == "Game")
+            CameraSplitter.Instance.SetCameraPositions();
     }
 
     private void PlayerSpawn()

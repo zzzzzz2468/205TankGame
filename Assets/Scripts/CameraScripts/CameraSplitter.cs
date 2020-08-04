@@ -6,12 +6,7 @@ public class CameraSplitter : Singleton<CameraSplitter>
 {
     public List<Camera> cameras;
 
-    void Start()
-    {
-        SetCameraPositions();
-    }
-
-    private void SetCameraPositions()
+    public void SetCameraPositions()
     {
         if (cameras.Count == 1)
             cameras[0].rect = new Rect(0, 0, 1, 1);
