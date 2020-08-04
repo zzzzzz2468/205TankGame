@@ -10,7 +10,7 @@ public class CameraSplitter : Singleton<CameraSplitter>
     {
         if (cameras.Count == 1)
             cameras[0].rect = new Rect(0, 0, 1, 1);
-        else
+        else if(cameras.Count == 2)
         {
             cameras[0].rect = new Rect(0, 0, 1, 0.5f);
             cameras[1].rect = new Rect(0, 0.5f, 1, 0.5f);

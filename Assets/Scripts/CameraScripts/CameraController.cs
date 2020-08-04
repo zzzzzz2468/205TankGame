@@ -10,15 +10,24 @@ public class CameraController : MonoBehaviour
     public float vertOff = 5;
     public float backOff = 5;
 
+    private void Update()
+    {
+        if (target == null)
+            Destroy(this.gameObject);
+    }
+
     //changes the camera position as player moves, moves with dampining
     private void LateUpdate()
     {
-        float currentAngle = transform.eulerAngles.y;
-        float desiredAngle = target.transform.eulerAngles.y;
-        float angle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime * damping);
+        if(target != null)
+        {
+            float currentAngle = transform.eulerAngles.y;
+            float desiredAngle = target.transform.eulerAngles.y;
+            float angle = Mathf.LerpAngle(currentAngle, desiredAngle, Time.deltaTime * damping);
 
-        transform.position = target.transform.position - (target.transform.forward * backOff) + (Vector3.up * vertOff);
+            transform.position = target.transform.position - (target.transform.forward * backOff) + (Vector3.up * vertOff);
 
-        transform.LookAt(target.transform);
+            transform.LookAt(target.transform);
+        }
     }
 }

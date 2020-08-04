@@ -14,6 +14,7 @@ public class GameManager : Singleton<GameManager>
     private GameObject gamePlayer;
     private GameObject gameShellHolder;
 
+    [Header("Enemies")]
     public int numOfEnemies;
 
     private Transform _shellHolder;
@@ -35,6 +36,7 @@ public class GameManager : Singleton<GameManager>
         get => _playerTwo != null ? _playerTwo : _playerTwo = SpawnPlayer(InputManager.inputScheme.arrowKeys);
     }
 
+    [Header("Lists")]
     //Lists for spawning players, enemies and pickups
     public List<PlayerSpawn> playerSpawnPoints = new List<PlayerSpawn>();
     public List<PickupSpawner> pickupSpawners = new List<PickupSpawner>();
@@ -45,8 +47,11 @@ public class GameManager : Singleton<GameManager>
     public List<ScoreData> scores = new List<ScoreData>();
     private const int MAXSCORESIZE = 3;
 
-    //TotalPlayers
+    [Header("Total Players")]
     public int numOfPlayers = 1;
+
+    [Header("Lives")]
+    public int lives = 3;
 
     //Sorts the scores
     protected override void Awake()
@@ -70,9 +75,15 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        if(playerSpawnPoints.Count != 0)
+        Debug.Log(lives);
+        Spawning();
+    }
+
+    private void Spawning()
+    {
+        if (playerSpawnPoints.Count != 0 && lives > 0)
             PlayerSpawn();
-        if(SceneManager.GetActiveScene().name == "Game")
+        if (SceneManager.GetActiveScene().name == "Game")
             CameraSplitter.Instance.SetCameraPositions();
     }
 

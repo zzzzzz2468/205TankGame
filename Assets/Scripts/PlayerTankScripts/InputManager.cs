@@ -73,7 +73,7 @@ public class InputManager : MonoBehaviour
                     shoot.ShootBullet();
 
                 if (Input.GetKeyDown(KeyCode.F))
-                    Destroy(this.gameObject);
+                    data.curHealth = 0;
 
                 break;
 
@@ -106,7 +106,7 @@ public class InputManager : MonoBehaviour
                     shoot.ShootBullet();
 
                 if (Input.GetKeyDown(KeyCode.End))
-                    Destroy(this.gameObject);
+                    data.curHealth = 0;
 
                 break;
 
