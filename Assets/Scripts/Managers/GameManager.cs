@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    //declares variables
+    [Header("Game Objects")]
     public static GameManager gamemanager;
     public GameObject playerPref;
     public GameObject shellHolderPref;
@@ -24,24 +24,14 @@ public class GameManager : Singleton<GameManager>
     //References
     private GameObject _playerOne;
     private GameObject _playerTwo;
-    private GameObject _playerThree;
-    private GameObject _playerFour;
 
     public GameObject PlayerOne
     {
-        get => _playerOne != null ? _playerOne : _playerOne = SpawnPlayer();
+        get => _playerOne != null ? _playerOne : _playerOne = SpawnPlayer(InputManager.inputScheme.WASD);
     }
     public GameObject PlayerTwo
     {
-        get => _playerTwo != null ? _playerTwo : _playerTwo = SpawnPlayer();
-    }
-    public GameObject PlayerThree
-    {
-        get => _playerThree != null ? _playerThree : _playerThree = SpawnPlayer();
-    }
-    public GameObject PlayerFour
-    {
-        get => _playerFour != null ? _playerFour : _playerFour = SpawnPlayer();
+        get => _playerTwo != null ? _playerTwo : _playerTwo = SpawnPlayer(InputManager.inputScheme.arrowKeys);
     }
 
     //Lists for spawning players, enemies and pickups
@@ -55,7 +45,7 @@ public class GameManager : Singleton<GameManager>
     private const int MAXSCORESIZE = 3;
 
     //TotalPlayers
-    public int totPlayers = 1;
+    public int numOfPlayers = 1;
 
     //Sorts the scores
     protected override void Awake()
@@ -74,12 +64,21 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        PlayerOne.transform.position = new Vector3(0, 0, 0);
+        PlayerSpawn();
     }
 
-    private void Update()
+    private void PlayerSpawn()
     {
-        EnemySpawn();
+        PlayerOne.transform.position = PlayerOne.transform.position;
+
+        switch (numOfPlayers)
+        {
+            case 2:
+                PlayerTwo.transform.position = PlayerTwo.transform.position;
+                break;
+            default:
+                break;
+        }
     }
 
     private void EnemySpawn()
@@ -88,7 +87,7 @@ public class GameManager : Singleton<GameManager>
             SpawnEnemy();
     }
 
-    private GameObject SpawnPlayer()
+    private GameObject SpawnPlayer(InputManager.inputScheme inputScheme)
     {
         int playerSpawn = Random.Range(0, playerSpawnPoints.Count);
         var spawn = playerSpawnPoints[playerSpawn].transform.position;
@@ -98,13 +97,14 @@ public class GameManager : Singleton<GameManager>
         var camera = Instantiate(cameraPref, spawn, Quaternion.identity);
 
         camera.GetComponent<CameraController>().target = player;
+        player.GetComponent<InputManager>().input = inputScheme;
 
         return player;
     }
 
     public GameObject SpawnEnemy()
     {
-        int enemySpawn = Random.Range(0, playerSpawnPoints.Count);
+        int enemySpawn = Random.Range(0, enemySpawners.Count);
         var spawn = enemySpawners[enemySpawn].transform.position;
         enemySpawners.RemoveAt(enemySpawn);
 
