@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -10,6 +12,11 @@ public class GameManager : Singleton<GameManager>
     public GameObject playerPref;
     public GameObject shellHolderPref;
     public GameObject cameraPref;
+    public TMP_InputField input;
+
+    [Header("Map Seed")]
+    public string seedType;
+    public int seedNum;
 
     private GameObject gamePlayer;
     private GameObject gameShellHolder;
@@ -71,12 +78,28 @@ public class GameManager : Singleton<GameManager>
     public void TotalPlayers(int players)
     {
         numOfPlayers = players;
+        lives *= numOfPlayers;
+    }
+
+    public void SeedType(string seed)
+    {
+        seedType = seed;
+
+        if(seed.Contains("Seeded"))
+            seedNum = int.Parse(input.text);
     }
 
     private void Update()
     {
-        Debug.Log(lives);
+        if (lives == 0)
+            GameOver();
         Spawning();
+    }
+
+    private void GameOver()
+    {
+        
+
     }
 
     private void Spawning()

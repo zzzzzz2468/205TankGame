@@ -109,6 +109,15 @@ public class MapGenerator : MonoBehaviour
     //Calls start game
     private void Start()
     {
+        if (GameManager.Instance.seedType.Contains("MapDay"))
+            mapType = MapType.MapDay;
+        else if(GameManager.Instance.seedType.Contains("Random"))
+            mapType = MapType.Random;
+        else if(GameManager.Instance.seedType.Contains("Seeded"))
+        {
+            mapType = MapType.Seeded;
+        }
+
         StartGame();
     }
 
@@ -118,6 +127,7 @@ public class MapGenerator : MonoBehaviour
         switch(mapType)
         {
             case MapType.Seeded:
+                mapSeed = GameManager.Instance.seedNum;
                 break;
             case MapType.Random:
                 mapSeed = DateToInt(DateTime.Now);

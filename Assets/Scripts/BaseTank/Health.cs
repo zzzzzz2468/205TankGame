@@ -25,9 +25,7 @@ public class Health : MonoBehaviour, IHealth
         health = data.curHealth;
 
         if(health <= 0)
-        {
             Death();
-        }
 
         if(gameObject.layer == 8)
             Debug.Log("Enemy Health is " + health);
@@ -40,6 +38,11 @@ public class Health : MonoBehaviour, IHealth
         Destroy(this.gameObject);
         GameManager.Instance.lives -= 1;
         data.curHealth = data.maxHealth;
+    }
+
+    void PlayerDeath()
+    {
+        CameraSplitter.Instance.SetCameraPositions();
     }
 
     //allows bullet script to change health
