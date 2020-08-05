@@ -29,6 +29,13 @@ public class Powerups
         target.ammo += ammoMod;
         target.curFuel += fuelMod;
         target.maxFuel += maxFuelMod;
+
+        if (target.curFuel > target.maxFuel)
+            target.curFuel = target.maxFuel;
+        if (target.curHealth > target.maxHealth)
+            target.curHealth = target.maxHealth;
+        if (target.ammo > target.maxAmmo)
+            target.ammo = target.maxAmmo;
     }
 
     //Changing variables on deactive
@@ -37,6 +44,5 @@ public class Powerups
         target.moveSpeedForward -= speedMod;
         target.fireRate -= fireRateMod;
         target.damageDone -= damageMod;
-        target.ammo -= ammoMod;
     }
 }

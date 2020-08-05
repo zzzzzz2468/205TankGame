@@ -54,11 +54,13 @@ public class GameManager : Singleton<GameManager>
     public List<ScoreData> scores = new List<ScoreData>();
     private const int MAXSCORESIZE = 3;
 
-    [Header("Total Players")]
+    [Header("Players")]
     public int numOfPlayers = 1;
+    public List<GameObject> players = new List<GameObject>();
 
     [Header("Lives")]
-    public int lives = 3;
+    public int playerLives = 3;
+    public List<int> lives = new List<int>();
 
     //Sorts the scores
     protected override void Awake()
@@ -75,49 +77,68 @@ public class GameManager : Singleton<GameManager>
         scores = scores.GetRange(index: 0, count: MAXSCORESIZE);
     }
 
-    public void TotalPlayers(int players)
+    public void TotalPlayers(int play)
     {
-        numOfPlayers = players;
-        lives *= numOfPlayers;
+        numOfPlayers = play;
     }
 
     public void SeedType(string seed)
     {
         seedType = seed;
 
-        if(seed.Contains("Seeded"))
+        if (seed.Contains("Seeded") && input.text.Length != 0)
             seedNum = int.Parse(input.text);
+        else if (seed.Contains("Seeded") && input.text.Length == 0)
+            seedNum = 0;
     }
 
     private void Update()
     {
-        if (lives == 0)
+        if (playerSpawnPoints.Count != 0 && !lives.Contains(0))
+        {
+            PlayerSpawn();
+            CheckLives();
+            CameraSplitter.Instance.SetCameraPositions();
+        }
+    }
+
+    private void CheckLives()
+    {
+        if (lives.Count == 0)
+            lives.Add(playerLives);
+        if(numOfPlayers == 2 && lives.Count == 1)
+            lives.Add(playerLives);
+
+        if (lives.Contains(0) && numOfPlayers == 2)
+            CameraSplitter.Instance.SetCameraPositions();
+
+        if (lives[0] == 0 && numOfPlayers == 1)
             GameOver();
-        Spawning();
+        else if ((lives[0] == 0 && lives[1] == 0) && numOfPlayers == 2)
+            GameOver();
     }
 
     private void GameOver()
     {
-        
-
-    }
-
-    private void Spawning()
-    {
-        if (playerSpawnPoints.Count != 0 && lives > 0)
-            PlayerSpawn();
-        if (SceneManager.GetActiveScene().name == "Game")
-            CameraSplitter.Instance.SetCameraPositions();
+        Debug.Log("Game");
     }
 
     private void PlayerSpawn()
     {
         PlayerOne.transform.position = PlayerOne.transform.position;
+        if (players.Count == 0)
+            players.Add(PlayerOne);
+        else
+            players[0] = PlayerOne;
 
         switch (numOfPlayers)
         {
             case 2:
                 PlayerTwo.transform.position = PlayerTwo.transform.position;
+                if (players.Count == 1)
+                    players.Add(PlayerTwo);
+                else
+                    players[1] = PlayerTwo;
                 break;
             default:
                 break;

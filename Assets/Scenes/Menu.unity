@@ -266,6 +266,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5762821933674839872, guid: d981101b22679394dba43eac8cf31822,
         type: 3}
+      propertyPath: lives.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762821933674839872, guid: d981101b22679394dba43eac8cf31822,
+        type: 3}
+      propertyPath: players.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762821933674839872, guid: d981101b22679394dba43eac8cf31822,
+        type: 3}
       propertyPath: scores.Array.data[0].playerScore
       value: 100
       objectReference: {fileID: 0}
@@ -324,6 +334,28 @@ PrefabInstance:
       propertyPath: input
       value: 
       objectReference: {fileID: 1891334622}
+    - target: {fileID: 5762821933674839872, guid: d981101b22679394dba43eac8cf31822,
+        type: 3}
+      propertyPath: lives.Array.data[0]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762821933674839872, guid: d981101b22679394dba43eac8cf31822,
+        type: 3}
+      propertyPath: lives.Array.data[1]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5762821933674839872, guid: d981101b22679394dba43eac8cf31822,
+        type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 6365705624027258808, guid: 739ce804dd34c1f449bcc42510d14d01,
+        type: 3}
+    - target: {fileID: 5762821933674839872, guid: d981101b22679394dba43eac8cf31822,
+        type: 3}
+      propertyPath: players.Array.data[1]
+      value: 
+      objectReference: {fileID: 6365705624027258808, guid: 739ce804dd34c1f449bcc42510d14d01,
+        type: 3}
     - target: {fileID: 8426850265859244648, guid: d981101b22679394dba43eac8cf31822,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -497,6 +529,11 @@ PrefabInstance:
     - target: {fileID: 7370652396603248130, guid: d4538a50d06dcef478019d4830566711,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7370652397748934326, guid: d4538a50d06dcef478019d4830566711,
+        type: 3}
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7370652396369598369, guid: d4538a50d06dcef478019d4830566711,
@@ -634,11 +671,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 415941196}
-    - target: {fileID: 7370652397748934326, guid: d4538a50d06dcef478019d4830566711,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1242188501370319480, guid: d4538a50d06dcef478019d4830566711,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target

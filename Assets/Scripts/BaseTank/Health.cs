@@ -26,23 +26,21 @@ public class Health : MonoBehaviour, IHealth
 
         if(health <= 0)
             Death();
-
-        if(gameObject.layer == 8)
-            Debug.Log("Enemy Health is " + health);
-        else if(gameObject.layer == 9)
-            Debug.Log("Player Health is " + health);
     }
 
     void Death()
     {
         Destroy(this.gameObject);
-        GameManager.Instance.lives -= 1;
-        data.curHealth = data.maxHealth;
-    }
 
-    void PlayerDeath()
-    {
-        CameraSplitter.Instance.SetCameraPositions();
+        if(GameManager.Instance.numOfPlayers == 1)
+            GameManager.Instance.lives[0] -= 1;
+        else if(GameManager.Instance.numOfPlayers == 2)
+        {
+            if (GameManager.Instance.players[0] == this.gameObject)
+                GameManager.Instance.lives[0] -= 1;
+            else if (GameManager.Instance.players[1] == this.gameObject)
+                GameManager.Instance.lives[1] -= 1;
+        }
     }
 
     //allows bullet script to change health
