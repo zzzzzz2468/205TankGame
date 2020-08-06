@@ -142,8 +142,6 @@ public class MapGenerator : MonoBehaviour
         GenerateGrid();
         for (int i = 0; i < GameManager.Instance.numOfEnemies; i++)
         {
-            Debug.Log(GameManager.Instance.numOfEnemies);
-            Debug.Log("Spawn Enemy");
             GameManager.Instance.SpawnEnemy();
         }
     }

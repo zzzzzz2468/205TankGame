@@ -56,6 +56,7 @@ public class GameManager : Singleton<GameManager>
     [Header("Players")]
     public int numOfPlayers = 1;
     public int numOfLiving = 1;
+    public int playerDeath = 2;
     public List<GameObject> players = new List<GameObject>();
 
     [Header("Lives")]
@@ -134,7 +135,7 @@ public class GameManager : Singleton<GameManager>
 
     private void PlayerSpawn()
     {
-        if(lives[0] != 0)
+        if (lives[0] != 0)
         {
             PlayerOne.transform.position = PlayerOne.transform.position;
             if (players.Count == 0)
@@ -150,7 +151,9 @@ public class GameManager : Singleton<GameManager>
         {
             PlayerTwo.transform.position = PlayerTwo.transform.position;
             if (players.Count == 1)
+            {
                 players.Add(PlayerTwo);
+            }
             else
                 players[1] = PlayerTwo;
         }
