@@ -117,13 +117,16 @@ public class GameManager : Singleton<GameManager>
         }
 
         if ((lives.Contains(0) && numOfPlayers == 1) || (lives[0] == 0 && lives[1] == 0 && numOfPlayers == 2))
+        {
+            numOfLiving = 0;
             GameOver();
+        }
 
     }
 
     private void GameOver()
     {
-        Debug.Log("Game");
+        MainMenu.Instance.ChangeScene(2);
     }
 
     private void PlayerSpawn()

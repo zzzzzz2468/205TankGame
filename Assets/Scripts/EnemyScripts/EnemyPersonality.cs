@@ -75,10 +75,11 @@ public class EnemyPersonality : MonoBehaviour
             TargetCheck();
         else if(GameManager.Instance.lives[0] != 0)
             target = GameManager.Instance.players[0].transform;
-        else
+        else if (GameManager.Instance.lives[1] != 0)
             target = GameManager.Instance.players[1].transform;
 
-        EnemyPersonalityStateMachine();
+        if(GameManager.Instance.numOfLiving != 0)
+            EnemyPersonalityStateMachine();
     }
 
     void TargetCheck()
