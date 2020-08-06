@@ -26,7 +26,7 @@ public class Health : MonoBehaviour, IHealth
             Death();
     }
 
-    void Death()
+    public void Death()
     {
         Destroy(this.gameObject);
 

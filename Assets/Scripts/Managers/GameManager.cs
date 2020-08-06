@@ -54,6 +54,7 @@ public class GameManager : Singleton<GameManager>
 
     [Header("Players")]
     public int numOfPlayers = 1;
+    public int numOfLiving = 1;
     public List<GameObject> players = new List<GameObject>();
 
     [Header("Lives")]
@@ -78,6 +79,7 @@ public class GameManager : Singleton<GameManager>
     public void TotalPlayers(int play)
     {
         numOfPlayers = play;
+        numOfLiving = play;
     }
 
     public void SeedType(string seed)
@@ -109,7 +111,10 @@ public class GameManager : Singleton<GameManager>
             lives.Add(playerLives);
 
         if (lives.Contains(0) && numOfPlayers == 2)
+        {
             CameraSplitter.Instance.SetCameraPositions();
+            numOfLiving = 1;
+        }
 
         if ((lives.Contains(0) && numOfPlayers == 1) || (lives[0] == 0 && lives[1] == 0 && numOfPlayers == 2))
             GameOver();

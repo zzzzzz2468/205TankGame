@@ -16,6 +16,7 @@ public class InputManager : MonoBehaviour
     private TankMotor motor;
     private TankData data;
     private Shoot shoot;
+    private Health health;
 
     private bool isMoving = false;
 
@@ -25,6 +26,7 @@ public class InputManager : MonoBehaviour
         motor = GetComponent<TankMotor>();
         data = GetComponent<TankData>();
         shoot = GetComponent<Shoot>();
+        health = GetComponent<Health>();
     }
 
     //Calls the inputs
@@ -73,7 +75,7 @@ public class InputManager : MonoBehaviour
                     shoot.ShootBullet();
 
                 if (Input.GetKeyDown(KeyCode.F))
-                    data.curHealth = 0;
+                    health.Death();
 
                 break;
 
@@ -106,7 +108,7 @@ public class InputManager : MonoBehaviour
                     shoot.ShootBullet();
 
                 if (Input.GetKeyDown(KeyCode.End))
-                    data.curHealth = 0;
+                    health.Death();
 
                 break;
 

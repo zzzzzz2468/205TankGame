@@ -71,20 +71,28 @@ public class EnemyPersonality : MonoBehaviour
     //calls state machine and checks data
     void Update()
     {
-        if(GameManager.Instance.numOfPlayers > 1)
+        if(GameManager.Instance.numOfLiving > 1)
             TargetCheck();
-        else
+        else if(GameManager.Instance.lives[0] != 0)
             target = GameManager.Instance.players[0].transform;
+        else
+            target = GameManager.Instance.players[1].transform;
 
         EnemyPersonalityStateMachine();
     }
 
     void TargetCheck()
     {
-        float player1Distance = Vector3.Distance(GameManager.Instance.players[0].transform.position, transform.position);
-        float player2Distance = Vector3.Distance(GameManager.Instance.players[1].transform.position, transform.position);
-        if (player1Distance < player2Distance)
-            target = GameManager.Instance.players[0].transform;
+        if(GameManager.Instance.players[0] != null)
+        {
+            float player1Distance = Vector3.Distance(GameManager.Instance.players[0].transform.position, transform.position);
+            float player2Distance = Vector3.Distance(GameManager.Instance.players[1].transform.position, transform.position);
+
+            if (player1Distance < player2Distance)
+                target = GameManager.Instance.players[0].transform;
+            else
+                target = GameManager.Instance.players[1].transform;
+        }
         else
             target = GameManager.Instance.players[1].transform;
     }
