@@ -12,6 +12,8 @@ public class UIManager : Singleton<UIManager>
     public Slider tankHealth;
     public Slider tankFuel;
 
+    public TextMeshProUGUI scoreText;
+
     private TankData data;
     private PlayerScore score;
 
@@ -22,6 +24,8 @@ public class UIManager : Singleton<UIManager>
         StartUpCode();
         HealthAndFuel();
         StatChange();
+        scoreText.text = "Score: " + score.playerScoreData.playerScore.ToString("N0");
+        Debug.Log(score.playerScoreData.playerScore.ToString("N0"));
     }
 
     private void StartUpCode()
@@ -29,6 +33,7 @@ public class UIManager : Singleton<UIManager>
         if (GameManager.Instance.players.Count != 0 && hasStarted == false)
         {
             data = GameManager.Instance.players[0].GetComponent<TankData>();
+            score = GameManager.Instance.players[0].GetComponent<PlayerScore>();
 
             tankHealth.maxValue = data.maxHealth;
             tankFuel.maxValue = data.maxFuel;
