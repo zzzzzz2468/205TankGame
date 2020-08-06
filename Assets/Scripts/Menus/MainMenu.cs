@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using UnityEditor;
 
 [RequireComponent(typeof(MenuData))]
-public class MainMenu : MonoBehaviour
+public class MainMenu : Singleton<MainMenu>
 {
     protected MenuData _data;
 
@@ -11,6 +11,12 @@ public class MainMenu : MonoBehaviour
     {
         _data = GetComponent<MenuData>();
         ChangeMenu("MainMenu");
+    }
+
+    private void Update()
+    {
+        //if(SceneManager.GetActiveScene().name == "Game")
+
     }
 
     //Changes Menu

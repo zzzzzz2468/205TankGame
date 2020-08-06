@@ -34,7 +34,7 @@ public class SaveManager : Singleton<SaveManager>
 
     private void Update()
     {
-        //textTemp.text = numToSave.ToString();
+        
     }
 
     private void OnApplicationQuit()

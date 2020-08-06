@@ -604,7 +604,6 @@ MonoBehaviour:
   curHealth: 0
   score: 0
   Shell: {fileID: 188082976519747032, guid: 1852612b27c78204d882e7e5cd99fadd, type: 3}
-  ShellHolder: {fileID: 0}
   endOfBarrel: {fileID: 5557219800724622077}
   AggCloseDistance: 10
 --- !u!114 &4819542511027485444
@@ -632,6 +631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f850b179b48e94ca9e388f6d6a111d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCamera: {fileID: 0}
 --- !u!114 &3558779512178234960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -706,6 +706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ba0ba239ffcb144687cd242d063f4c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scorePerSec: 0.01
+  scorePerKill: 20
   playerScoreData:
     playerScore: 0
     playerName: 

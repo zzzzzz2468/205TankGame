@@ -1,8 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using TMPro;
 
 public class GameManager : Singleton<GameManager>
@@ -51,7 +49,7 @@ public class GameManager : Singleton<GameManager>
     public List<GameObject> enemyPrefs = new List<GameObject>();
 
     //Score
-    public List<ScoreData> scores = new List<ScoreData>();
+    public List<ScoreData> highScores = new List<ScoreData>();
     private const int MAXSCORESIZE = 3;
 
     [Header("Players")]
@@ -66,15 +64,15 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
-        if(scores.Count >= 1)
+        if(highScores.Count > 1)
             CleanScores();
     }
 
     void CleanScores()
     {
-        scores.Sort();
-        scores.Reverse();
-        scores = scores.GetRange(index: 0, count: MAXSCORESIZE);
+        highScores.Sort();
+        highScores.Reverse();
+        highScores = highScores.GetRange(index: 0, count: MAXSCORESIZE);
     }
 
     public void TotalPlayers(int play)
@@ -94,10 +92,10 @@ public class GameManager : Singleton<GameManager>
 
     private void Update()
     {
-        if (playerSpawnPoints.Count != 0 && !lives.Contains(0))
+        if (playerSpawnPoints.Count != 0)
         {
-            PlayerSpawn();
             CheckLives();
+            PlayerSpawn();
             CameraSplitter.Instance.SetCameraPositions();
         }
     }
@@ -106,16 +104,16 @@ public class GameManager : Singleton<GameManager>
     {
         if (lives.Count == 0)
             lives.Add(playerLives);
-        if(numOfPlayers == 2 && lives.Count == 1)
+
+        if (numOfPlayers == 2 && lives.Count == 1)
             lives.Add(playerLives);
 
         if (lives.Contains(0) && numOfPlayers == 2)
             CameraSplitter.Instance.SetCameraPositions();
 
-        if (lives[0] == 0 && numOfPlayers == 1)
+        if ((lives.Contains(0) && numOfPlayers == 1) || (lives[0] == 0 && lives[1] == 0 && numOfPlayers == 2))
             GameOver();
-        else if ((lives[0] == 0 && lives[1] == 0) && numOfPlayers == 2)
-            GameOver();
+
     }
 
     private void GameOver()
@@ -125,30 +123,26 @@ public class GameManager : Singleton<GameManager>
 
     private void PlayerSpawn()
     {
-        PlayerOne.transform.position = PlayerOne.transform.position;
-        if (players.Count == 0)
-            players.Add(PlayerOne);
-        else
-            players[0] = PlayerOne;
-
-        switch (numOfPlayers)
+        if(lives[0] != 0)
         {
-            case 2:
-                PlayerTwo.transform.position = PlayerTwo.transform.position;
-                if (players.Count == 1)
-                    players.Add(PlayerTwo);
-                else
-                    players[1] = PlayerTwo;
-                break;
-            default:
-                break;
+            PlayerOne.transform.position = PlayerOne.transform.position;
+            if (players.Count == 0)
+                players.Add(PlayerOne);
+            else
+                players[0] = PlayerOne;
         }
-    }
 
-    private void EnemySpawn()
-    {
-        for (int i = 0; i < numOfEnemies; i++)
-            SpawnEnemy();
+        if (numOfPlayers == 1)
+            return;
+
+        if(lives[1] != 0)
+        {
+            PlayerTwo.transform.position = PlayerTwo.transform.position;
+            if (players.Count == 1)
+                players.Add(PlayerTwo);
+            else
+                players[1] = PlayerTwo;
+        }
     }
 
     private GameObject SpawnPlayer(InputManager.inputScheme inputScheme)
@@ -175,7 +169,6 @@ public class GameManager : Singleton<GameManager>
         var enemyTemp = enemyPrefs[Random.Range(0, enemyPrefs.Count)];
 
         var enemy = Instantiate(enemyTemp, spawn, Quaternion.identity);
-        enemy.GetComponent<EnemyPersonality>().target = gamePlayer.transform;
 
         return enemy;
     }

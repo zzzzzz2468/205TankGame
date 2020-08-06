@@ -71,7 +71,22 @@ public class EnemyPersonality : MonoBehaviour
     //calls state machine and checks data
     void Update()
     {
+        if(GameManager.Instance.numOfPlayers > 1)
+            TargetCheck();
+        else
+            target = GameManager.Instance.players[0].transform;
+
         EnemyPersonalityStateMachine();
+    }
+
+    void TargetCheck()
+    {
+        float player1Distance = Vector3.Distance(GameManager.Instance.players[0].transform.position, transform.position);
+        float player2Distance = Vector3.Distance(GameManager.Instance.players[1].transform.position, transform.position);
+        if (player1Distance < player2Distance)
+            target = GameManager.Instance.players[0].transform;
+        else
+            target = GameManager.Instance.players[1].transform;
     }
 
     //personality state machine
@@ -160,7 +175,6 @@ public class EnemyPersonality : MonoBehaviour
     {
         //More close range
         float distance = Vector3.Distance(target.transform.position, transform.position);
-        Debug.Log(distance);
         if (distance <= data.AggCloseDistance)
             enemyMode = EnemyMode.Attack;
         else if (fov.CanSee(target.gameObject) && hearing.CanHear(target.gameObject))

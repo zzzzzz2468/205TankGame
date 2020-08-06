@@ -10,8 +10,6 @@ public class Health : MonoBehaviour, IHealth
     private TankData data;
     private float health;
 
-    public GameObject playerCamera;
-
     //finds and sets data
     private void Start()
     {
@@ -22,7 +20,7 @@ public class Health : MonoBehaviour, IHealth
 
     private void Update()
     {
-        health = data.curHealth;
+        data.curHealth = health;
 
         if(health <= 0)
             Death();

@@ -140,5 +140,11 @@ public class MapGenerator : MonoBehaviour
                 break;
         }
         GenerateGrid();
+        for (int i = 0; i < GameManager.Instance.numOfEnemies; i++)
+        {
+            Debug.Log(GameManager.Instance.numOfEnemies);
+            Debug.Log("Spawn Enemy");
+            GameManager.Instance.SpawnEnemy();
+        }
     }
 }
