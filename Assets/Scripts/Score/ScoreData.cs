@@ -13,9 +13,9 @@ public class ScoreData : IComparable<ScoreData>
     {
         if (other == null)
             return 1;
-        if (this.playerScore > other.playerScore)
+        if (playerScore > other.playerScore)
             return 1;
-        if (this.playerScore < other.playerScore)
+        if (playerScore < other.playerScore)
             return -1;
         return 0;
     }

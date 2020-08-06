@@ -15,6 +15,6 @@ public class PlayerScore : MonoBehaviour
 
     void AddScoreToHighScores()
     {
-        GameManager.Instance.highScores.Add(playerScoreData);
+        //GameManager.Instance.highScores.Add(playerScoreData);
     }
 }

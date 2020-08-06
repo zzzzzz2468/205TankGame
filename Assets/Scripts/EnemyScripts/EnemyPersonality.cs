@@ -71,12 +71,14 @@ public class EnemyPersonality : MonoBehaviour
     //calls state machine and checks data
     void Update()
     {
-        if(GameManager.Instance.numOfLiving > 1)
+        if (GameManager.Instance.numOfLiving > 1)
             TargetCheck();
-        else if(GameManager.Instance.lives[0] != 0)
+        else if (GameManager.Instance.lives[0] != 0)
             target = GameManager.Instance.players[0].transform;
         else if (GameManager.Instance.lives[1] != 0)
             target = GameManager.Instance.players[1].transform;
+        else
+            Debug.Log("Potatoes");
 
         if(GameManager.Instance.numOfLiving != 0)
             EnemyPersonalityStateMachine();

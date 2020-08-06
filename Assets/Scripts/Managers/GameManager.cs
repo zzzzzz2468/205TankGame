@@ -11,6 +11,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject shellHolderPref;
     public GameObject cameraPref;
     public TMP_InputField input;
+    public TMP_InputField teamName;
 
     [Header("Map Seed")]
     public string seedType;
@@ -61,6 +62,9 @@ public class GameManager : Singleton<GameManager>
     public int playerLives = 3;
     public List<int> lives = new List<int>();
 
+    [Header("Score")]
+    public ScoreData data;
+
     //Sorts the scores
     protected override void Awake()
     {
@@ -80,6 +84,7 @@ public class GameManager : Singleton<GameManager>
     {
         numOfPlayers = play;
         numOfLiving = play;
+        data.playerName = teamName.text;
     }
 
     public void SeedType(string seed)
@@ -117,15 +122,13 @@ public class GameManager : Singleton<GameManager>
         }
 
         if ((lives.Contains(0) && numOfPlayers == 1) || (lives[0] == 0 && lives[1] == 0 && numOfPlayers == 2))
-        {
-            numOfLiving = 0;
             GameOver();
-        }
 
     }
 
     private void GameOver()
     {
+        numOfLiving = 0;
         MainMenu.Instance.ChangeScene(2);
     }
 
