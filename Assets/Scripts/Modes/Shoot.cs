@@ -25,6 +25,8 @@ public class Shoot : MonoBehaviour
     {
         if (lastShot >= data.fireRate && data.ammo > 0)
         {
+            AudioSource.PlayClipAtPoint(data.tankShoot, transform.position, 1.0f);
+
             var shot = Instantiate(data.Shell, data.endOfBarrel.transform.position, transform.rotation, GameManager.Instance.ShellHolder.transform);
             lastShot = 0;
 

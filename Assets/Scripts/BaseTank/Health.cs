@@ -29,8 +29,9 @@ public class Health : MonoBehaviour, IHealth
     public void Death()
     {
         Destroy(this.gameObject);
+        AudioSource.PlayClipAtPoint(data.tankDie, transform.position, 1.0f);
 
-        if(GameManager.Instance.numOfPlayers == 1)
+        if (GameManager.Instance.numOfPlayers == 1)
             GameManager.Instance.lives[0] -= 1;
         else if(GameManager.Instance.numOfPlayers == 2)
         {

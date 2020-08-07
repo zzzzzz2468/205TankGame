@@ -151,9 +151,11 @@ MonoBehaviour:
     damagePermMod: 0
     ammoMod: 5
     maxAmmoPermMod: 0
+    fuelMod: 0
+    maxFuelMod: 0
     duration: 0
     isPerm: 1
-  feedbackAudio: {fileID: 0}
+  feedbackAudio: {fileID: 8300000, guid: 692cbd0868b4dc74aa469e27cd4637d1, type: 3}
 --- !u!1 &5467779686685864029
 GameObject:
   m_ObjectHideFlags: 0

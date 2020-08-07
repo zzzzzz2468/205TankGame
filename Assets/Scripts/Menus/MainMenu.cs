@@ -13,12 +13,6 @@ public class MainMenu : Singleton<MainMenu>
         ChangeMenu("MainMenu");
     }
 
-    private void Update()
-    {
-        //if(SceneManager.GetActiveScene().name == "Game")
-
-    }
-
     //Changes Menu
     public void ChangeMenu(string menu)
     {

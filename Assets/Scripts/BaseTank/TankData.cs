@@ -37,6 +37,10 @@ public class TankData : MonoBehaviour
     [Header("Aggressive AI")]
     public float AggCloseDistance = 10.0f;
 
+    [Header("Sounds")]
+    public AudioClip tankShoot;
+    public AudioClip tankDie;
+
     private TankData _tankData;
     //Sends data to other scripts
     public void Initilization(TankData data)

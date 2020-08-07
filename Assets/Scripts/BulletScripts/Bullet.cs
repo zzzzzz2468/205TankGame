@@ -10,6 +10,7 @@ public class Bullet : MonoBehaviour
 
     public Attack attack;
     public GameObject attacker;
+    public AudioClip feedbackAudio;
 
     //finds rigidbody
     public Rigidbody RigidBody
@@ -53,8 +54,10 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.GetComponent<IAttackable>() != null)
         {
             IAttackable[] attackables = collision.gameObject.GetComponentsInChildren<IAttackable>();
+            if (feedbackAudio != null)
+                AudioSource.PlayClipAtPoint(feedbackAudio, transform.position, 1.0f);
 
-            foreach(IAttackable attackable in attackables)
+            foreach (IAttackable attackable in attackables)
             {
                 Destroy(gameObject);
                 attackable.OnAttack(attacker, attack);

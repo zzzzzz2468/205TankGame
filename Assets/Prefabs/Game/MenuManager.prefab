@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7562882379433015557}
   - component: {fileID: 7562882379433015553}
   - component: {fileID: 7562882379433015552}
+  - component: {fileID: 901815132}
   m_Layer: 0
   m_Name: MenuManager
   m_TagString: Untagged
@@ -83,6 +84,7 @@ MonoBehaviour:
   menus:
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
   settingsMenus: []
 --- !u!114 &7562882379433015552
 MonoBehaviour:
@@ -96,3 +98,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1175083b71b7e540a2676235d97aaa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &901815132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7562882379433015556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 088b7bac47211684e8eeff22ae2f80df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterMixer: {fileID: 24100000, guid: 0d29057fa9e04fe479cfe6d1ae4733ef, type: 2}

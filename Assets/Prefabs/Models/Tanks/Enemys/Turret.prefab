@@ -883,9 +883,10 @@ MonoBehaviour:
   curHealth: 0
   score: 0
   Shell: {fileID: 188082976519747032, guid: 1852612b27c78204d882e7e5cd99fadd, type: 3}
-  ShellHolder: {fileID: 0}
   endOfBarrel: {fileID: 689772768584664483}
   AggCloseDistance: 10
+  tankShoot: {fileID: 8300000, guid: 57421e845b08a274cacf556bff31fee0, type: 3}
+  tankDie: {fileID: 8300000, guid: 53e2e51bcc5a1bc43a4662704cec924d, type: 3}
 --- !u!114 &5897001259517742226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -959,6 +960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5832e0cf6e3184892ebea2383aa035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackAudio: {fileID: 0}
 --- !u!114 &1155321887
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -984,6 +986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f5832e0cf6e3184892ebea2383aa035, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  feedbackAudio: {fileID: 0}
 --- !u!114 &6065948210145576130
 MonoBehaviour:
   m_ObjectHideFlags: 0
