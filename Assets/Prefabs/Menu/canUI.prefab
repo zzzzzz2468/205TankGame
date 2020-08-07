@@ -293,7 +293,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &1876239083723412882
 MonoBehaviour:
@@ -943,7 +943,6 @@ MonoBehaviour:
   tankHealth: {fileID: 1876239084193386355}
   tankFuel: {fileID: 1876239085506367586}
   scoreText: {fileID: 4552651247094465707}
-  score: {fileID: 0}
 --- !u!1 &1876239084947736260
 GameObject:
   m_ObjectHideFlags: 0

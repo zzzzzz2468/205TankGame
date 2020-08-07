@@ -8,13 +8,18 @@ public class PlayerScore : MonoBehaviour
     public float scorePerKill = 20.0f;
     public ScoreData playerScoreData;
 
+    private void Start()
+    {
+        playerScoreData.playerName = GameManager.Instance.txtTeamName;
+    }
+
     private void Update()
     {
         playerScoreData.playerScore += scorePerSec;
     }
 
-    void AddScoreToHighScores()
+    void OnDestroy()
     {
-        //GameManager.Instance.highScores.Add(playerScoreData);
+        GameManager.Instance.currentGame.Add(playerScoreData);
     }
 }

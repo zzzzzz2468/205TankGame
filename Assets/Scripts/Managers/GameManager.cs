@@ -12,6 +12,7 @@ public class GameManager : Singleton<GameManager>
     public GameObject cameraPref;
     public TMP_InputField input;
     public TMP_InputField teamName;
+    public GameObject UI;
 
     [Header("Map Seed")]
     public string seedType;
@@ -50,8 +51,11 @@ public class GameManager : Singleton<GameManager>
     public List<GameObject> enemyPrefs = new List<GameObject>();
 
     //Score
+    [Header("Score")]
     public List<ScoreData> highScores = new List<ScoreData>();
+    public List<ScoreData> currentGame = new List<ScoreData>();
     private const int MAXSCORESIZE = 3;
+    public string txtTeamName;
 
     [Header("Players")]
     public int numOfPlayers = 1;
@@ -62,9 +66,6 @@ public class GameManager : Singleton<GameManager>
     [Header("Lives")]
     public int playerLives = 3;
     public List<int> lives = new List<int>();
-
-    [Header("Score")]
-    public ScoreData data;
 
     //Sorts the scores
     protected override void Awake()
@@ -85,7 +86,7 @@ public class GameManager : Singleton<GameManager>
     {
         numOfPlayers = play;
         numOfLiving = play;
-        data.playerName = teamName.text;
+        txtTeamName = teamName.text;
     }
 
     public void SeedType(string seed)
@@ -139,9 +140,13 @@ public class GameManager : Singleton<GameManager>
         {
             PlayerOne.transform.position = PlayerOne.transform.position;
             if (players.Count == 0)
+            {
                 players.Add(PlayerOne);
+            }
             else
+            {
                 players[0] = PlayerOne;
+            }
         }
 
         if (numOfPlayers == 1)
@@ -155,7 +160,9 @@ public class GameManager : Singleton<GameManager>
                 players.Add(PlayerTwo);
             }
             else
+            {
                 players[1] = PlayerTwo;
+            }
         }
     }
 
@@ -166,10 +173,30 @@ public class GameManager : Singleton<GameManager>
         playerSpawnPoints.RemoveAt(playerSpawn);
 
         var player = Instantiate(playerPref, spawn, Quaternion.identity);
-        var camera = Instantiate(cameraPref, spawn, Quaternion.identity);
-
-        camera.GetComponent<CameraController>().target = player;
         player.GetComponent<InputManager>().input = inputScheme;
+
+        if (CameraSplitter.Instance.cameras.Count != 2)
+        {
+            var camera = Instantiate(cameraPref, spawn, Quaternion.identity);
+            camera.GetComponent<CameraController>().target = player;
+            var userInterface = Instantiate(UI, spawn, Quaternion.identity);
+            userInterface.GetComponent<Canvas>().worldCamera = camera.GetComponent<Camera>();
+            userInterface.GetComponent<Canvas>().planeDistance = 1;
+        }
+        else
+        {
+            switch (inputScheme)
+            {
+                case InputManager.inputScheme.WASD:
+                    CameraSplitter.Instance.cameras[0].gameObject.GetComponent<CameraController>().target = player;
+                    break;
+                case InputManager.inputScheme.arrowKeys:
+                    CameraSplitter.Instance.cameras[1].gameObject.GetComponent<CameraController>().target = player;
+                    break;
+                default:
+                    break;
+            }
+        }
 
         return player;
     }
