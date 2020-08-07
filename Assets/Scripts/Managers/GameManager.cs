@@ -190,6 +190,8 @@ public class GameManager : Singleton<GameManager>
         {
             var camera = Instantiate(cameraPref, spawn, Quaternion.identity);
             camera.GetComponent<CameraController>().target = player;
+            if (numOfPlayers == 1 && lives[0] != playerLives)
+                return player;
             var userInterface = Instantiate(UI, spawn, Quaternion.identity);
             userInterface.GetComponent<Canvas>().worldCamera = camera.GetComponent<Camera>();
             userInterface.GetComponent<Canvas>().planeDistance = 1;
