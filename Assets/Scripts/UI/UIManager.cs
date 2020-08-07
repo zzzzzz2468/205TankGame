@@ -6,19 +6,25 @@ using TMPro;
 
 public class UIManager : Singleton<UIManager>
 {
+    //lists of images for shells and remaining lives
     public List<GameObject> tankShells = new List<GameObject>();
     public List<GameObject> tankLives = new List<GameObject>();
 
+    //health and fuel bars
     public Slider tankHealth;
     public Slider tankFuel;
 
+    //Text for score to change
     public TextMeshProUGUI scoreText;
 
+    //scripts
     private TankData data;
     private PlayerScore score;
 
+    //For startupcode
     private bool hasStarted = false;
 
+    //Calls all the functions
     private void Update()
     {
         StartUpCode();
@@ -28,6 +34,8 @@ public class UIManager : Singleton<UIManager>
         Debug.Log(score.playerScoreData.playerScore.ToString("N0"));
     }
 
+    //Runs the startup code, I tried putting in start, but no matter where i put it 
+    //in the execution order it did not work
     private void StartUpCode()
     {
         if (GameManager.Instance.players.Count != 0 && hasStarted == false)
@@ -45,6 +53,7 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    //updates the bullets remaining and the lives
     private void LivesAndBullets(List<GameObject> list, int max)
     {
         for (int i = 0; i < list.Count; i++)
@@ -56,12 +65,14 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
+    //updates the health and fuel bars
     private void HealthAndFuel()
     {
         tankFuel.value = data.curFuel;
         tankHealth.value = data.curHealth;
     }
 
+    //changes stats from outside script
     public void StatChange()
     {
         LivesAndBullets(tankShells, data.ammo);

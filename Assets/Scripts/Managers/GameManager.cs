@@ -24,6 +24,7 @@ public class GameManager : Singleton<GameManager>
     [Header("Enemies")]
     public int numOfEnemies;
 
+    //creates the shellholder if called
     private Transform _shellHolder;
     public Transform ShellHolder
     {
@@ -34,6 +35,7 @@ public class GameManager : Singleton<GameManager>
     private GameObject _playerOne;
     private GameObject _playerTwo;
 
+    //creates the players if called
     public GameObject PlayerOne
     {
         get => _playerOne != null ? _playerOne : _playerOne = SpawnPlayer(InputManager.inputScheme.WASD);
@@ -50,7 +52,6 @@ public class GameManager : Singleton<GameManager>
     public List<EnemySpawn> enemySpawners = new List<EnemySpawn>();
     public List<GameObject> enemyPrefs = new List<GameObject>();
 
-    //Score
     [Header("Score")]
     public List<ScoreData> highScores = new List<ScoreData>();
     public List<ScoreData> currentGame = new List<ScoreData>();
@@ -75,6 +76,7 @@ public class GameManager : Singleton<GameManager>
             CleanScores();
     }
 
+    //cleans the scores up
     void CleanScores()
     {
         highScores.Sort();
@@ -82,6 +84,7 @@ public class GameManager : Singleton<GameManager>
         highScores = highScores.GetRange(index: 0, count: MAXSCORESIZE);
     }
 
+    //gets total players and sets the variables up, called via button
     public void TotalPlayers(int play)
     {
         numOfPlayers = play;
@@ -89,6 +92,7 @@ public class GameManager : Singleton<GameManager>
         txtTeamName = teamName.text;
     }
 
+    //decides the seed type and checks if seeded, also called via button
     public void SeedType(string seed)
     {
         seedType = seed;
@@ -99,6 +103,7 @@ public class GameManager : Singleton<GameManager>
             seedNum = 0;
     }
 
+    //spawns players and checks lives
     private void Update()
     {
         if (playerSpawnPoints.Count != 0)
@@ -109,6 +114,7 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    //checks if a player dies or when the game is over
     private void CheckLives()
     {
         if (lives.Count == 0)
@@ -128,12 +134,14 @@ public class GameManager : Singleton<GameManager>
 
     }
 
+    //changes the scene to the gameover scene
     private void GameOver()
     {
         numOfLiving = 0;
         MainMenu.Instance.ChangeScene(2);
     }
 
+    //spawns the players into the scene, also adds them into a list
     private void PlayerSpawn()
     {
         if (lives[0] != 0)
@@ -166,6 +174,9 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    //what actually spawns the player into the game. Sets the needed variables to their proper value
+    //creates a new camera if none, or uses the old camera and changes target if it exists
+    //also spawns the user interface, but only does it once per player
     private GameObject SpawnPlayer(InputManager.inputScheme inputScheme)
     {
         int playerSpawn = Random.Range(0, playerSpawnPoints.Count);
@@ -201,6 +212,7 @@ public class GameManager : Singleton<GameManager>
         return player;
     }
 
+    //spawns the enemy into the world
     public GameObject SpawnEnemy()
     {
         int enemySpawn = Random.Range(0, enemySpawners.Count);

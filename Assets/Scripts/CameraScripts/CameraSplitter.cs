@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class CameraSplitter : Singleton<CameraSplitter>
 {
+    //list of cameras
     public List<Camera> cameras;
 
+    //sets the camera positions
     public void SetCameraPositions()
     {
         if (cameras.Count == 1)

@@ -69,6 +69,7 @@ public class EnemyPersonality : MonoBehaviour
     }
 
     //calls state machine and checks data
+    //decides what the enemy should do for deciding a target
     void Update()
     {
         if (GameManager.Instance.numOfLiving > 1)
@@ -82,6 +83,7 @@ public class EnemyPersonality : MonoBehaviour
             EnemyPersonalityStateMachine();
     }
 
+    //checks which player is closer and changes target
     void TargetCheck()
     {
         if(GameManager.Instance.players[0] != null)

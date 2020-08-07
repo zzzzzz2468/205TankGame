@@ -9,34 +9,40 @@ public class SaveManager : Singleton<SaveManager>
     public float musicVol;
     public float fxVol;
 
-    public float numToSave;
-    public Text textTemp;
+    //sliders for sound
+    public Slider music;
+    public Slider fx;
 
+    //checks if stats exists and loads them
     private void Start()
     {
-        //Load();
-        if (PlayerPrefs.HasKey("MusicVolume"))
+        if (PlayerPrefs.HasKey("MusicVolume") && PlayerPrefs.HasKey("FXVolume"))
+        {
             Load();
+            music.value = musicVol;
+            fx.value = fxVol;
+        }
     }
 
+    //saves the volume stats
     public void Save()
     {
-        PlayerPrefs.SetFloat("Number To Save", numToSave);
+        musicVol = music.value;
+        fxVol = fx.value;
+
         PlayerPrefs.SetFloat("MusicVolume", musicVol);
         PlayerPrefs.SetFloat("FXVolume", fxVol);
         PlayerPrefs.Save();
     }
 
+    //loads the volume stats
     public void Load()
     {
-        numToSave = PlayerPrefs.GetFloat("Number To Save");
+        fxVol = PlayerPrefs.GetFloat("FXVolume");
+        musicVol = PlayerPrefs.GetFloat("MusicVolume");
     }
 
-    private void Update()
-    {
-        
-    }
-
+    //saves on close
     private void OnApplicationQuit()
     {
         Save();

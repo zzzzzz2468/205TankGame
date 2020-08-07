@@ -18,6 +18,7 @@ public class Health : MonoBehaviour, IHealth
         data.curHealth = data.maxHealth;
     }
 
+    //updates and checks health/death
     private void Update()
     {
         data.curHealth = health;
@@ -26,6 +27,7 @@ public class Health : MonoBehaviour, IHealth
             Death();
     }
 
+    //Player death, loss of life and detects which player to take from
     public void Death()
     {
         Destroy(this.gameObject);
@@ -48,6 +50,7 @@ public class Health : MonoBehaviour, IHealth
         health -= newHealth;
     }
 
+    //taking damage
     public void TakeDamage(float damage)
     {
         health -= damage;

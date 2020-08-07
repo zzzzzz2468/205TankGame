@@ -5,12 +5,15 @@ using TMPro;
 
 public class GameOver : MonoBehaviour
 {
+    //text and score data
     public TextMeshProUGUI congrats;
     public TextMeshProUGUI score;
     public ScoreData data;
 
+    //total score between both players
     private float totalScore;
 
+    //changes the text in the game over screen
     void Start()
     {
         congrats.text = "Congrats " + GameManager.Instance.currentGame[0].playerName;
@@ -21,5 +24,8 @@ public class GameOver : MonoBehaviour
         }
 
         score.text = "Score " + totalScore.ToString("N0");
+
+        PlayerPrefs.SetFloat("PlayerScore", totalScore);
+        PlayerPrefs.SetString("PlayerName", GameManager.Instance.currentGame[0].playerName);
     }
 }
